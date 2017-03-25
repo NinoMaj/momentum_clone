@@ -18,8 +18,8 @@
     "@types/classnames": "^0.0.31",
     "@types/react-redux": "^4.4.32",
     "del": "^2.0.2",
-    "gulp": "gulpjs/gulp#4ed9a4a3275559c73a396eff7e1fde3824951ebb",
-    "gulp-hub": "frankwallis/gulp-hub#d461b9c700df9010d0a8694e4af1fb96d9f38bf4",
+    "gulp": "github:gulpjs/gulp#4ed9a4a3275559c73a396eff7e1fde3824951ebb",
+    "gulp-hub": "github:frankwallis/gulp-hub#d461b9c700df9010d0a8694e4af1fb96d9f38bf4",
     "gulp-filter": "^4.0.0",
     "gulp-util": "^3.0.7",
     "gulp-sass": "^2.1.1",
@@ -80,5 +80,19 @@
       "xo-react/space",
       "xo-space/esnext"
     ]
-  }
+  },
+  "name": "momentum_clone",
+  "version": "1.0.0",
+  "main": "gulpfile.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NinoMaj/momentum_clone.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/NinoMaj/momentum_clone/issues"
+  },
+  "homepage": "https://github.com/NinoMaj/momentum_clone#readme",
+  "description": ""
 }

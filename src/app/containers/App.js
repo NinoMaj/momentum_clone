@@ -5,7 +5,25 @@ import Header from '../components/Header';
 import MainSection from '../components/MainSection';
 import * as TodoActions from '../actions/index';
 
+let xhr;
+
 class App extends Component {
+  componentDidMount() {
+    xhr = new XMLHttpRequest();
+    xhr.open('GET', 'https://ipinfo.io/json', true);
+    xhr.send();
+
+    xhr.addEventListener('loadend', this.getBackground, false);
+  }
+  getBackground() {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+      const response = JSON.parse(xhr.responseText);
+      console.log(response);
+      // this.setState({
+      // });
+    }
+  }
+
   render() {
     const {todos, actions} = this.props;
     return (

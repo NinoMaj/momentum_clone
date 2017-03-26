@@ -72,6 +72,7 @@ class TodoItem extends Component {
     return (
       <li
         className={classnames({
+          todoLi: true,
           completed: todo.completed,
           editing: this.state.editing
         })}

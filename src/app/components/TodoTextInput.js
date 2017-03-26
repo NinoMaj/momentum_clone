@@ -37,6 +37,7 @@ class TodoTextInput extends Component {
       <input
         className={
           classnames({
+            'newTodoTextInput': true,
             'edit': this.props.editing,
             'new-todo': this.props.newTodo
           })}

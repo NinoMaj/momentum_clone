@@ -3,38 +3,46 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import Header from '../components/Header';
 import MainSection from '../components/MainSection';
+import classnames from 'classnames';
 import * as TodoActions from '../actions/index';
 
-let xhr;
-
 class App extends Component {
-  componentDidMount() {
-    xhr = new XMLHttpRequest();
-    xhr.open('GET', 'https://ipinfo.io/json', true);
-    xhr.send();
+  constructor() {
+    super();
 
-    xhr.addEventListener('loadend', this.getBackground, false);
+    this.state = {
+      todosOpen: false
+    };
+    this.handleOpenOrCloseTodos = this.handleOpenOrCloseTodos.bind(this);
   }
-  getBackground() {
-    if (xhr.readyState === 4 && xhr.status === 200) {
-      const response = JSON.parse(xhr.responseText);
-      console.log(response);
-      // this.setState({
-      // });
-    }
+
+  handleOpenOrCloseTodos() {
+    this.setState({
+      todosOpen: !this.state.todosOpen
+    });
   }
 
   render() {
     const {todos, actions} = this.props;
+    const todosOpenPressed = classnames({
+      openTodoLink: true,
+      todosOpenPressed: this.state.todosOpen
+    });
     return (
       <div>
-        <Header
-          addTodo={actions.addTodo}
-          />
-        <MainSection
-          todos={todos}
-          actions={actions}
-          />
+        <div className={todosOpenPressed} onClick={this.handleOpenOrCloseTodos}>todos</div>
+        {this.state.todosOpen === true && (
+          <div className="todoContainer">
+            <Header
+              addTodo={actions.addTodo}
+              />
+            <MainSection
+              todos={todos}
+              actions={actions}
+              />
+          </div>
+          )}
+
       </div>
     );
   }

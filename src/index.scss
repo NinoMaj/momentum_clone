@@ -6,3 +6,45 @@ html {
   background-size: cover;
   height: 100%;
 }
+
+.newTodoTextInput {
+  font-size: 1.2em;
+}
+
+.todoLi label {
+  font-size: 0.7em;
+}
+
+.footer {
+  font-size: 0.7em;
+}
+
+.openTodoLink {
+  color: #EAD7D7;
+  background-color: #FFFFFF;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 1.2em;
+  position: fixed;
+  padding: 5px;
+  right: 5%;
+  bottom: 1%;
+  width: 50px;
+}
+
+.openTodoLink:hover {
+  color: #5F021F;
+  border: 1px solid #5F021F;
+}
+
+.todosOpenPressed{
+  color: #5F021F;
+}
+
+.todoContainer {
+  position: fixed;
+  right: 5%;
+  bottom: 5%;
+  background-color: #FFFFFF;
+  width: 350px;
+}

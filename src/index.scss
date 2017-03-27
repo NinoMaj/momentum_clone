@@ -1,8 +1,50 @@
-html { 
-  background: url("https://source.unsplash.com/category/nature/daily") no-repeat center center fixed; 
+html {
+  background: url("https://source.unsplash.com/category/nature/daily") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
   height: 100%;
+}
+
+.Quotes {
+  text-align: center;
+  font-size: 24px;
+  text-decoration: bold;
+  background: none;
+}
+
+ .Slide{
+  animation: slide 0.5s forwards;
+}
+
+@keyframes slide {
+    0% {
+      transform: translateY(0%);
+    }
+    100% {
+      transform: translateY(-25px);
+    }
+}
+
+.Author {
+  visibility: hidden;
+}
+
+.AnimationTwo {
+  animation: slide2 0.5s ease-in forwards;
+  animation-delay: 0.5s;
+}
+
+@keyframes slide2 {
+  0% {
+    transform: translateY(-25px);
+    opacity: 0;
+    visibility: visible;
+  }
+  100% {
+    transform: translateY(10px);
+    opacity: 1;
+    visibility: visible;
+  }
 }

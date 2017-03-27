@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import Header from '../components/Header';
 import MainSection from '../components/MainSection';
 import * as TodoActions from '../actions/index';
+import Quotes from './Quotes';
 
 let xhr;
 
@@ -28,13 +29,16 @@ class App extends Component {
     const {todos, actions} = this.props;
     return (
       <div>
-        <Header
-          addTodo={actions.addTodo}
-          />
-        <MainSection
-          todos={todos}
-          actions={actions}
-          />
+        <div>
+          <Header
+            addTodo={actions.addTodo}
+            />
+          <MainSection
+            todos={todos}
+            actions={actions}
+            />
+        </div>
+        <Quotes/>
       </div>
     );
   }

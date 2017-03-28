@@ -5,6 +5,7 @@ import Header from '../components/Header';
 import MainSection from '../components/MainSection';
 import classnames from 'classnames';
 import * as TodoActions from '../actions/index';
+import Quotes from './Quotes';
 
 class App extends Component {
   constructor() {
@@ -42,7 +43,7 @@ class App extends Component {
               />
           </div>
           )}
-
+          <Quotes/>
       </div>
     );
   }

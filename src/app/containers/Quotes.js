@@ -5,12 +5,14 @@ import * as QuoteActions from '../actions/quotesActions';
 import axios from 'axios';
 const sanitizeHtml = require('sanitize-html');
 
+// varibles for classNames, for animations
 let cn;
 let cn1 = "";
 
 class Quotes extends Component {
   constructor(props) {
     super(props);
+    // handle binding this to functions
     this.handleTwitterClicked = this.handleTwitterClicked.bind(this);
     this.handleHeartClicked = this.handleHeartClicked.bind(this);
     this.handleMouseOverQuote = this.handleMouseOverQuote.bind(this);
@@ -25,8 +27,9 @@ class Quotes extends Component {
     const mm = date.getMonth() + 1;
     const yyyy = date.getFullYear();
     date = `${dd}.${mm}.${yyyy}`;
+
     // if localStorage has no quotes at all,
-    // initiate an empty array
+    // initiate an empty arrays for quotes and favoriteQuotes
     if (!localStorage.quotes) {
       localStorage.quotes = JSON.stringify([]);
       localStorage.favoriteQuotes = JSON.stringify([]);
@@ -39,7 +42,8 @@ class Quotes extends Component {
       return value.date === date;
     });
 
-    if (todaysQuote.length === 0) { // if it isn't fatch from API, save to storage and set to state
+     // if it isn't fatch from API, save to storage and set to state
+    if (todaysQuote.length === 0) {
       // get random quote
       axios.get('http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1')
       .then(quote => {
@@ -52,8 +56,8 @@ class Quotes extends Component {
           date,
           quote: quote.data[0]
         });
-
         localStorage.quotes = JSON.stringify(quotes);
+
         // set state
         const state = {
           date,
@@ -63,7 +67,8 @@ class Quotes extends Component {
         };
         this.props.getRandomQoute(state);
       });
-    } else {  // if it is, setState to it
+    } else {  // if you do not fetch it just set it from localStorage.quotes
+      // check if todaysQuote is in the favorites, color heart aprorietly
       let heart;
       const favorite = JSON.parse(localStorage.favoriteQuotes);
       const todaysFavorite = favorite.filter(value => {
@@ -84,12 +89,14 @@ class Quotes extends Component {
     }
   }
 
+  // add to favorites and change the heart color
   handleHeartClicked() {
     if (this.props.quotes[0].emptyHeart) {// add qoute to favorites
-      console.log(this.props.quotes[0]);
       const favorites = JSON.parse(localStorage.favoriteQuotes);
       favorites.push(this.props.quotes[0]);
       localStorage.favoriteQuotes = JSON.stringify(favorites);
+
+      // change a heart color
       const state = {
         date: this.props.quotes[0].date,
         quote: this.props.quotes[0].quote,
@@ -105,6 +112,8 @@ class Quotes extends Component {
         return obj.date !== date;
       });
       localStorage.favoriteQuotes = JSON.stringify(favorites);
+
+      // change a heart color
       const state = {
         date: this.props.quotes[0].date,
         quote: this.props.quotes[0].quote,
@@ -115,12 +124,15 @@ class Quotes extends Component {
     }
   }
 
+  //generate link, and redirect to it
   handleTwitterClicked() {
     const quote = `"${this.props.quotes[0].quote}" --${this.props.quotes[0].author} via @BlueWhales momentum_clone`;
     const uri = `https://twitter.com/intent/tweet?text=${encodeURIComponent(quote)}`;
     window.open(uri);
   }
 
+  // Haande Animations
+  // set correct class
   handleMouseOverQuote() {
     const state = {
       hover: true
@@ -129,6 +141,7 @@ class Quotes extends Component {
     this.changeClass();
   }
 
+  // delet the class on mouse out
   handleMouseOut() {
     const state = {
       hover: false
@@ -137,6 +150,7 @@ class Quotes extends Component {
     this.changeClass();
   }
 
+  // add animation classes to prpoer elements
   changeClass() {
     cn = this.props.hover[0].hover === true ? "" : "Slide";
     cn1 = this.props.hover[0].hover === true ? "" : "AnimationTwo";

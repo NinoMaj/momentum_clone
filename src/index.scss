@@ -51,10 +51,13 @@ html {
 
 
 .Quotes {
+  position: fixed;
+  bottom: 3%;
   text-align: center;
-  font-size: 24px;
+  font-size: 1.6em;
   text-decoration: bold;
-  background: none;
+  background-color: transparent;
+  color: red;
 }
 
  .Slide{
@@ -72,6 +75,7 @@ html {
 
 .Author {
   visibility: hidden;
+  font-size: 0.9em;
 }
 
 .AnimationTwo {

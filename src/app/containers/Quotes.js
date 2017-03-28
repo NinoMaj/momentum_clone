@@ -124,7 +124,7 @@ class Quotes extends Component {
     }
   }
 
-  //generate link, and redirect to it
+  // generate link, and redirect to it
   handleTwitterClicked() {
     const quote = `"${this.props.quotes[0].quote}" --${this.props.quotes[0].author} via @BlueWhales momentum_clone`;
     const uri = `https://twitter.com/intent/tweet?text=${encodeURIComponent(quote)}`;

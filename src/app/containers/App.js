@@ -6,6 +6,7 @@ import MainSection from '../components/MainSection';
 import classnames from 'classnames';
 import * as TodoActions from '../actions/index';
 import Quotes from './Quotes';
+import Links from './Links';
 
 class App extends Component {
   constructor() {
@@ -31,6 +32,7 @@ class App extends Component {
     });
     return (
       <div>
+        <Links/>
         <div className={todosOpenPressed} onClick={this.handleOpenOrCloseTodos}>todos</div>
         {this.state.todosOpen === true && (
           <div className="todoContainer">

@@ -33,6 +33,7 @@ class Quotes extends Component {
     if (!localStorage.quotes) {
       localStorage.quotes = JSON.stringify([]);
       localStorage.favoriteQuotes = JSON.stringify([]);
+      localStorage.list = JSON.stringify([]);
     }
 
     // check if todaysQuote is in storage already
@@ -169,7 +170,7 @@ class Quotes extends Component {
     });
 
     return (
-      <div className={`Quotes ${cn}`} onMouseOver={this.handleMouseOverQuote} onMouseOut={this.handleMouseOut}> {cleanHtml}
+      <div className={`Quotes ${cn}`} onMouseOver={this.handleMouseOverQuote} onMouseOut={this.handleMouseOut}><strong>{cleanHtml}</strong>
         <p className={`Author ${cn1}`}>{this.props.quotes[0].author}<span> </span>
         {this.props.quotes[0].emptyHeart ? <i onClick={this.handleHeartClicked} className="fa fa-heart-o" aria-hidden="true"></i> :
           <i onClick={this.handleHeartClicked} className="fa fa-heart" aria-hidden="true"></i>}

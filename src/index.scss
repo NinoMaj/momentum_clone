@@ -164,3 +164,34 @@ body {
   width: 30px;
   height: 30px;
 }
+
+.searchStyle {
+  width: 205px;
+  color: white;
+}
+
+.searchStyle input:focus {
+  border-bottom: 3px solid white;
+}
+
+.searchStyle input {
+  height: 60px;
+  padding: 20px 2px 5px 4px;
+  z-index: 2;
+  background: 0 0;
+  border: none;
+  box-sizing: border-box;
+  line-height: 20px;
+  outline: 0;
+  color: white;
+  font-size: 17px;
+  width: 180px;
+}
+
+.searchStyle i {
+  font-size: 17px;
+}
+
+.searchStyle i:hover {
+  cursor: pointer;
+}

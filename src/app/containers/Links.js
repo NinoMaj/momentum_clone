@@ -73,6 +73,10 @@ class Links extends Component {
   }
 
   render() {
+    if (!localStorage.list) {
+      localStorage.list = JSON.stringify([]);
+    }
+
     const listAr = JSON.parse(localStorage.list);
     const listUlr = listAr.map(item => {
       const uri = `https://${item.url}`;

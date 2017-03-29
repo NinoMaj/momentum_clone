@@ -7,6 +7,10 @@ html {
   height: 100%;
 }
 
+body {
+  background-color: transparent;
+}
+
 .newTodoTextInput {
   font-size: 1.2em;
 }
@@ -47,6 +51,11 @@ html {
   bottom: 5%;
   background-color: #FFFFFF;
   width: 350px;
+}
+
+.todoapp {
+  background: transparent;
+  box-shadow: none;
 }
 
 
@@ -131,4 +140,27 @@ html {
   padding: 0;
   height: 1px;
   width: 1px;
+}
+
+.clockStyle {
+  position: fixed;
+  top: 40%;
+  left: 40%;
+  background-color: transparent;
+  color: white;
+  font-size: 85px;
+  text-align: center;
+}
+
+.weatherStyle {
+  float: right;
+  background-color: transparent;
+  color: white;
+  font-size: 18px;
+  text-align: center;
+}
+
+.weatherStyle img {
+  width: 30px;
+  height: 30px;
 }

@@ -2,7 +2,7 @@ import {ADD_TODO, DELETE_TODO, EDIT_TODO, COMPLETE_TODO, COMPLETE_ALL, CLEAR_COM
 
 const initialState = [
   {
-    text: 'Use Redux',
+    text: 'Keep it cool',
     completed: false,
     id: 0
   }

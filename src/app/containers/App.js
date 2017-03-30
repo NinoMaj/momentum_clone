@@ -3,8 +3,10 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import Header from '../components/Header';
 import MainSection from '../components/MainSection';
+import MainFocus from '../components/MainFocus';
 import classnames from 'classnames';
 import * as TodoActions from '../actions/index';
+import * as MainFocusActions from '../actions/mainFocus_actions';
 
 class App extends Component {
   constructor() {
@@ -29,7 +31,7 @@ class App extends Component {
       todosOpenPressed: this.state.todosOpen
     });
     return (
-      <div>
+      <div className="appContainer">
         <div className={todosOpenPressed} onClick={this.handleOpenOrCloseTodos}>todos</div>
         {this.state.todosOpen === true && (
           <div className="todoContainer">
@@ -42,7 +44,12 @@ class App extends Component {
               />
           </div>
           )}
-
+        <MainFocus
+          mainFocus={this.props.mainFocus}
+          addMainFocus={actions.addMainFocus}
+          completeMainFocus={actions.completeMainFocus}
+          deleteMainFocus={actions.deleteMainFocus}
+          />
       </div>
     );
   }
@@ -50,18 +57,20 @@ class App extends Component {
 
 App.propTypes = {
   todos: PropTypes.array.isRequired,
-  actions: PropTypes.object.isRequired
+  actions: PropTypes.object.isRequired,
+  mainFocus: PropTypes.object.isRequired
 };
 
 function mapStateToProps(state) {
   return {
-    todos: state.todos
+    todos: state.todos,
+    mainFocus: state.mainFocus
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(TodoActions, dispatch)
+    actions: bindActionCreators(Object.assign({}, TodoActions, MainFocusActions), dispatch)
   };
 }
 

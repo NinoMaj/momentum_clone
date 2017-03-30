@@ -20,7 +20,7 @@ html {
 }
 
 .openTodoLink {
-  color: #EAD7D7;
+  color: #DA7777;
   background-color: #FFFFFF;
   border-radius: 5px;
   text-align: center;
@@ -47,4 +47,76 @@ html {
   bottom: 5%;
   background-color: #FFFFFF;
   width: 350px;
+}
+
+.mainFocusWrapper{
+  position: absolute;
+  margin: 0 auto;
+  background: rgba(0,0,0,0.0);
+  width: 100%;
+}
+
+.viewFocus {
+  position: relative;
+  display: inline-block;
+  height: 30px;
+  width: 100%;
+  margin: 0 auto;
+  font-weight: bold;
+}
+
+.mainFocusInput {
+  background: rgba(0,0,0,0.0);
+  width: 100%;
+  color: #fff;
+  font-size: 1.5em;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  text-align: center;
+  font-weight: bold;
+}
+
+.mainFocusSet {
+  text-decoration: line-through;
+}
+
+.mainFocusSetText {
+  color: white;
+  font-size: 1.5em;
+  text-align: center;
+}
+
+.destroyMainFocusBtn {
+  display: none;
+  height: 20px;
+  font-size: 1.5em;
+  color: #cc9a9a;
+  -webkit-transition: color 0.2s ease-out;
+  transition: color 0.2s ease-out;
+  margin-left: 5px;
+}
+
+.toggleFocus {
+  display: inline-block;
+  margin-top: 5px;
+}
+
+#toggleFocus {
+  width: 15px;
+  height: 15px;
+}
+
+.destroyMainFocusBtn:hover {
+  color: #af5b5e;
+}
+
+.viewFocus:hover .destroyMainFocusBtn {
+  display: inline-block;
+}
+
+.mainFocusTitle {
+  color: white;
+  text-align: center;
+  font-size: 2em;
 }

@@ -1,10 +1,14 @@
-html { 
-  background: url("https://source.unsplash.com/category/nature/daily") no-repeat center center fixed; 
+html {
+  background: url("https://source.unsplash.com/category/nature/daily") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
   height: 100%;
+}
+
+body {
+  background-color: transparent;
 }
 
 .newTodoTextInput {
@@ -119,4 +123,147 @@ html {
   color: white;
   text-align: center;
   font-size: 2em;
+}
+
+.todoapp {
+  background: transparent;
+  box-shadow: none;
+}
+
+
+.Quotes {
+  position: fixed;
+  bottom: 3%;
+  text-align: center;
+  font-size: 1.6em;
+  background-color: transparent;
+  color: #eceff1;
+}
+
+ .Slide{
+  animation: slide 0.5s forwards;
+}
+
+@keyframes slide {
+    0% {
+      transform: translateY(0%);
+    }
+    100% {
+      transform: translateY(-25px);
+    }
+}
+
+.Author {
+  visibility: hidden;
+  font-size: 0.9em;
+}
+
+.AnimationTwo {
+  animation: slide2 0.5s ease-in forwards;
+  animation-delay: 0.2s;
+}
+
+@keyframes slide2 {
+  0% {
+    transform: translateY(-25px);
+    opacity: 0;
+    visibility: visible;
+  }
+  100% {
+    transform: translateY(10px);
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.Links {
+  position: fixed;
+  top: 2%;
+  left: 2%;
+  color: #e0e0e0;
+  font-size: 1.2em;
+}
+
+.linksBackground {
+  background-color: rgba(0, 0, 0, 0.8);
+  padding-left: 5px;
+  border-radius: 5px;
+  width: 170px;
+}
+
+.linksBackground ul {
+  list-style-type: none;
+  margin: 2px;
+  padding: 2px;
+}
+.linksBackground a {
+  text-decoration: none;
+  color: #f5f5f5;
+}
+
+.linksBackground i {
+  position: fixed;
+  left: 12%;
+}
+
+#hiddenSubmit {
+  visibility: hidden;
+  margin: 0;
+  padding: 0;
+  height: 1px;
+  width: 1px;
+}
+
+.clockStyle {
+  position: fixed;
+  top: 40%;
+  left: 40%;
+  background-color: transparent;
+  color: white;
+  font-size: 85px;
+  text-align: center;
+}
+
+.weatherStyle {
+  float: right;
+  background-color: transparent;
+  color: white;
+  font-size: 18px;
+  text-align: center;
+}
+
+.weatherStyle img {
+  width: 30px;
+  height: 30px;
+}
+
+.searchStyle {
+  width: 205px;
+  color: white;
+}
+
+.searchStyle input:focus {
+  border-bottom: 3px solid white;
+}
+
+.searchStyle input {
+  height: 60px;
+  padding: 20px 2px 5px 4px;
+  z-index: 2;
+  background: 0 0;
+  border: none;
+  box-sizing: border-box;
+  line-height: 20px;
+  outline: 0;
+  color: white;
+  font-size: 17px;
+  width: 180px;
+}
+
+.searchStyle i {
+  font-size: 17px;
+}
+
+.searchStyle i:hover {
+  cursor: pointer;
 }

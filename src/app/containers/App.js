@@ -7,6 +7,11 @@ import MainFocus from '../components/MainFocus';
 import classnames from 'classnames';
 import * as TodoActions from '../actions/index';
 import * as MainFocusActions from '../actions/mainFocus_actions';
+import Quotes from './Quotes';
+import Clock from '../components/Clock';
+import Weather from '../components/Weather';
+import Search from '../components/Search';
+import Links from './Links';
 
 class App extends Component {
   constructor() {
@@ -31,7 +36,11 @@ class App extends Component {
       todosOpenPressed: this.state.todosOpen
     });
     return (
-      <div className="appContainer">
+      <div>
+        <Links/>
+        <Clock/>
+        <Search/>
+        <Weather/>
         <div className={todosOpenPressed} onClick={this.handleOpenOrCloseTodos}>todos</div>
         {this.state.todosOpen === true && (
           <div className="todoContainer">
@@ -50,6 +59,7 @@ class App extends Component {
           completeMainFocus={actions.completeMainFocus}
           deleteMainFocus={actions.deleteMainFocus}
           />
+        <Quotes/>
       </div>
     );
   }

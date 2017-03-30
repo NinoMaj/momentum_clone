@@ -1,9 +1,10 @@
+/* eslint linebreak-style: ["error", "windows"] */
 import React, {Component, PropTypes} from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import Header from '../components/Header';
 import MainSection from '../components/MainSection';
-import MainFocus from '../components/MainFocus';
+import MainFocus from './MainFocus';
 import classnames from 'classnames';
 import * as TodoActions from '../actions/index';
 import * as MainFocusActions from '../actions/mainFocus_actions';

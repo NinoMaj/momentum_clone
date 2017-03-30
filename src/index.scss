@@ -23,6 +23,8 @@ body {
   font-size: 0.7em;
 }
 
+
+// TODO CSS
 .openTodoLink {
   color: #DA7777;
   background-color: #FFFFFF;
@@ -52,6 +54,10 @@ body {
   background-color: #FFFFFF;
   width: 350px;
 }
+
+// END OF TODO
+
+// MAIN FOCUS
 
 .mainFocusWrapper{
   position: absolute;
@@ -125,6 +131,8 @@ body {
   font-size: 2em;
 }
 
+// END OF MAIN FOCUS
+
 .todoapp {
   background: transparent;
   box-shadow: none;
@@ -133,7 +141,7 @@ body {
 
 .Quotes {
   position: fixed;
-  bottom: 3%;
+  bottom: 20%;
   text-align: center;
   font-size: 1.6em;
   background-color: transparent;
@@ -225,7 +233,9 @@ body {
 }
 
 .weatherStyle {
-  float: right;
+  position: fixed;
+  top: 5%;
+  right: 5%;
   background-color: transparent;
   color: white;
   font-size: 18px;

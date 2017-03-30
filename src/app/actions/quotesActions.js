@@ -1,3 +1,4 @@
+/* eslint linebreak-style: ["error", "windows"] */
 export function getRandomQoute(state) {
   return {type: "GETRANDOMQUOTE", state};
 }

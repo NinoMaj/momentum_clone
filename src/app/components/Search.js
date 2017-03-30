@@ -1,3 +1,4 @@
+/* eslint linebreak-style: ["error", "windows"] */
 import React from 'react';
 
 class Search extends React.Component {

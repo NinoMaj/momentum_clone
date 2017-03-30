@@ -1,3 +1,4 @@
+/* eslint linebreak-style: ["error", "windows"] */
 import React, {Component, PropTypes} from 'react';
 
 class ListItem extends Component {

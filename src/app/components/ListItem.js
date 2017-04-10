@@ -1,4 +1,3 @@
-/* eslint linebreak-style: ["error", "windows"] */
 import React, {Component, PropTypes} from 'react';
 
 class ListItem extends Component {
@@ -9,7 +8,7 @@ class ListItem extends Component {
   }
   render() {
     return (
-      <li><a href={this.props.uri}>{this.props.item.title}</a><i onClick={this.handleClick} className="fa fa-times" aria-hidden="true"></i></li>
+      <li className="listItem"><a href={this.props.uri}>{this.props.item.title}</a><i onClick={this.handleClick} className="fa fa-times" aria-hidden="true"></i></li>
     );
   }
 

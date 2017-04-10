@@ -1,5 +1,3 @@
-/* eslint linebreak-style: ["error", "windows"] */
-
 // import {ADD_MAIN_FOCUS} from '../constants/ActionTypes';
 
 const initialState = {

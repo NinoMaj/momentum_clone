@@ -1,4 +1,3 @@
-/* eslint linebreak-style: ["error", "windows"] */
 import React, {Component, PropTypes} from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
@@ -19,22 +18,23 @@ class LinkForm extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    const state = {
-      hover: true
+    const listItem = {
+      title: this.state.value,
+      url: this.state.value1
     };
-    this.props.form(state);
+    this.props.form(listItem);
     const ar = JSON.parse(localStorage.list);
-    state.key = ar.length + 1;
-    ar.push(state);
+    listItem.key = ar.length + 1;
+    ar.push(listItem);
     localStorage.list = JSON.stringify(ar);
   }
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <input type="text" value={this.state.value} name="value" onChange={this.handleChange}/>
-        <input type="text" value={this.state.value1} name="value1" onChange={this.handleChange}/>
-        <input type="submit" value="Submit"/>
+      <form className="linksForm" onSubmit={this.handleSubmit}>
+        <input type="text" placeholder="Title" value={this.state.value} name="value" onChange={this.handleChange}/>
+        <input type="text" placeholder="Adress" value={this.state.value1} name="value1" onChange={this.handleChange}/>
+        <input id="hiddenSubmit" type="submit" value="Submit"/>
       </form>
     );
   }

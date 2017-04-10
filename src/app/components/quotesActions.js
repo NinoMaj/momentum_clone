@@ -1,3 +1,4 @@
+
 export function getRandomQoute(state) {
   return {type: "GETRANDOMQUOTE", state};
 }

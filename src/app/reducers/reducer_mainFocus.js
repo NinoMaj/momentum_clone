@@ -1,4 +1,5 @@
-// import {ADD_MAIN_FOCUS} from '../constants/ActionTypes';
+/* eslint linebreak-style: ["error", "windows"] */
+import {ADD_MAIN_FOCUS, COMPLETE_MAIN_FOCUS, DELETE_MAIN_FOCUS} from '../constants/ActionTypes';
 
 const initialState = {
   text: '',
@@ -7,24 +8,14 @@ const initialState = {
 
 export default function mainFocus(state = initialState, action) {
   switch (action.type) {
-    case 'ADD_MAIN_FOCUS':
-      return Object.assign({}, state.mainFocus, action.text);
+    case ADD_MAIN_FOCUS:
+      return Object.assign({}, state, {text: action.payload});
 
-    case 'DELETE_MAIN_FOCUS':
+    case DELETE_MAIN_FOCUS:
       return Object.assign({}, initialState);
 
-    // case EDIT_TODO:
-    //   return state.map(todo =>
-    //     todo.id === action.id ?
-    //       Object.assign({}, todo, { text: action.text }) :
-    //       todo
-    //   );
-
-    case 'COMPLETE_MAIN_FOCUS':
+    case COMPLETE_MAIN_FOCUS:
       return Object.assign({}, state, {completed: action.payload});
-
-    // case CLEAR_COMPLETED:
-    //   return state.filter(todo => todo.completed === false);
 
     default:
       return state;

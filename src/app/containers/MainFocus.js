@@ -45,12 +45,8 @@ class MainFocus extends Component {
 
   handleSubmit(e) {
     const text = e.target.value.trim().slice(0, 40);
-    const action = {
-      text,
-      completed: false
-    };
     if (e.which === 13) {
-      this.props.addMainFocus(action);
+      this.props.addMainFocus(text);
       this.setState({
         text,
         editing: false

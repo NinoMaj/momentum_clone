@@ -1,7 +1,7 @@
 import * as types from '../constants/ActionTypes';
 
 export function addMainFocus(text) {
-  return {type: types.ADD_MAIN_FOCUS, text};
+  return {type: types.ADD_MAIN_FOCUS, payload: text};
 }
 
 export function completeMainFocus(completed) {

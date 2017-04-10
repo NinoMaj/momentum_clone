@@ -1,4 +1,3 @@
-/* eslint linebreak-style: ["error", "windows"] */
 import React, {Component, PropTypes} from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
@@ -74,10 +73,6 @@ class Links extends Component {
   }
 
   render() {
-    if (!localStorage.list) {
-      localStorage.list = JSON.stringify([]);
-    }
-
     const listAr = JSON.parse(localStorage.list);
     const listUlr = listAr.map(item => {
       const uri = `https://${item.url}`;
@@ -88,11 +83,12 @@ class Links extends Component {
 
     return (
       <div className="Links">
-        <p onClick={this.handleClicked}>Links</p>
+        {this.props.links[0].clicked ? <p className="LinksClicked" onClick={this.handleClicked}>Links</p> : <p id="LinksUnclicked" onClick={this.handleClicked}>Links</p>}
+
         {this.props.links[0].clicked ? <div className="linksBackground">
           <ul>
-            <li><a href="">Chrome Tab</a><i onClick={this.handlePlusClicked} className="fa fa-plus" aria-hidden="true"></i></li>
-            <li><a href="chrome://apps/">Apps</a></li>
+            <li><a href=""><span className="fa fa-chrome" aria-hidden="true"></span> Chrome Tab</a><i onClick={this.handlePlusClicked} className="fa fa-plus" aria-hidden="true"></i></li>
+            <li><a href="chrome://apps/"><span className="fa fa-th" aria-hidden="true"></span>  Apps</a></li>
             {listUlr}
           </ul>
           {this.props.links[0].plusClicked ? <div>

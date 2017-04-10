@@ -1,4 +1,3 @@
-/* eslint linebreak-style: ["error", "windows"] */
 import React, {Component, PropTypes} from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
@@ -13,6 +12,7 @@ import Clock from '../components/Clock';
 import Weather from '../components/Weather';
 import Search from '../components/Search';
 import Links from './Links';
+import Settings from './Settings';
 
 class App extends Component {
   constructor() {
@@ -42,6 +42,7 @@ class App extends Component {
         <Clock/>
         <Search/>
         <Weather/>
+        <Settings/>
         <div className={todosOpenPressed} onClick={this.handleOpenOrCloseTodos}>todos</div>
         {this.state.todosOpen === true && (
           <div className="todoContainer">

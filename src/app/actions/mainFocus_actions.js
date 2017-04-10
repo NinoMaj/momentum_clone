@@ -1,5 +1,3 @@
-/* eslint linebreak-style: ["error", "windows"] */
-
 import * as types from '../constants/ActionTypes';
 
 export function addMainFocus(text) {

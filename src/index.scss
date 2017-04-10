@@ -64,6 +64,7 @@ body {
   margin: 0 auto;
   background: rgba(0,0,0,0.0);
   width: 100%;
+  z-index: -1;
 }
 
 .viewFocus {
@@ -138,14 +139,16 @@ body {
   box-shadow: none;
 }
 
+// QUOTES
 
 .Quotes {
   position: fixed;
   bottom: 20%;
   text-align: center;
-  font-size: 1.6em;
+  font-size: 1.2em;
   background-color: transparent;
   color: #eceff1;
+  z-index: -1;
 }
 
  .Slide{
@@ -184,7 +187,14 @@ body {
   }
 }
 
+// END OF QUOTES
+
+// LINKS
+
+
+
 .Links {
+  text-shadow: -2px -1px 9px rgba(188, 188, 188, 0.69);
   position: fixed;
   top: 2%;
   left: 2%;
@@ -192,7 +202,17 @@ body {
   font-size: 1.2em;
 }
 
+.LinksClicked {
+  font-size: 1.4em;
+  color: #f5f5f5;
+}
+
+#LinksUnclicked {
+  font-size: 1.4em;
+}
+
 .linksBackground {
+  box-sizing: border-box;
   background-color: rgba(0, 0, 0, 0.8);
   padding-left: 5px;
   border-radius: 5px;
@@ -204,14 +224,49 @@ body {
   margin: 2px;
   padding: 2px;
 }
-.linksBackground a {
-  text-decoration: none;
-  color: #f5f5f5;
+
+.linksBackground li{
+  padding: 1px;
+  margin: 1px;
 }
 
 .linksBackground i {
   position: fixed;
-  left: 12%;
+  left: 11.5%;
+}
+
+.linksBackground a {
+  text-decoration: none;
+  color: #e0e0e0;
+  opacity: 0.7;
+}
+
+.linksBackground a:hover {
+  text-shadow: -2px -1px 9px rgba(188, 188, 188, 0.69);
+  opacity: 1;
+  color: #f5f5f5;
+}
+
+.linksBackground i {
+  color: #e0e0e0;
+  opacity: 0.7;
+}
+
+.linksBackground i:hover {
+  text-shadow: -2px -1px 9px rgba(188, 188, 188, 0.69);
+  opacity: 1;
+  color: #f5f5f5;
+}
+
+.linksForm input {
+  box-sizing: border-box;
+  background: none;
+  background-color: #424242;
+  border: none;
+  width: 100%;
+  margin-left: -2.5%;
+  padding: 3px;
+  color: #e0e0e0;
 }
 
 #hiddenSubmit {
@@ -221,6 +276,8 @@ body {
   height: 1px;
   width: 1px;
 }
+
+// END OF LINKS
 
 .clockStyle {
   position: fixed;
@@ -276,4 +333,53 @@ body {
 
 .searchStyle i:hover {
   cursor: pointer;
+}
+
+// Settings
+
+.settings {
+  position: fixed;
+  bottom: 2%;
+  left: 2%;
+  color: #e0e0e0;
+}
+
+.settingsPage {
+  height: 450px;
+  width: 650px;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.8);;
+  margin-bottom: 2%;
+  z-index: 10;
+}
+
+.settingsLeft {
+  float: left;
+  width: 25%;
+  height: 95.5%;
+  border-right: 1px solid #616161;
+  padding-left: 5%;
+  padding-top: 3%;
+}
+
+.settingsRight {
+  position: relative;
+  float: right;
+  width: 69%;
+  height: 99%;
+}
+
+// About
+.about {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #f5f5f5;
+  text-decoration: none;
+}
+
+.about a {
+  color: #f5f5f5;
 }

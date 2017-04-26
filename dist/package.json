@@ -7,8 +7,8 @@
     "node": ">=4"
   },
   "dependencies": {
-    "compression": "^1.4.4",
-    "express": "^4.12.3",
-    "serve-static": "^1.9.2"
+    "compression": "^1.6.2",
+    "express": "^4.15.2",
+    "serve-static": "^1.12.1"
   }
 }

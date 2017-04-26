@@ -65,16 +65,21 @@ class Links extends Component {
   }
 
   handleDelete(key) {
-    let list = JSON.parse(localStorage.list);
-    list = list.filter(obj => {
-      return obj.key !== key;
-    });
-    localStorage.list = JSON.stringify(list);
-    this.props.formAction(list);
+    if (localStorage.list) {
+      let list = JSON.parse(localStorage.list);
+      list = list.filter(obj => {
+        return obj.key !== key;
+      });
+      localStorage.list = JSON.stringify(list);
+      this.props.formAction(list);
+    }
   }
 
   render() {
-    const listAr = JSON.parse(localStorage.list);
+    let listAr = {};
+    if (localStorage.list) {
+      listAr = JSON.parse(localStorage.list);
+    }
     const listUlr = listAr.map(item => {
       const uri = `https://${item.url}`;
       return (

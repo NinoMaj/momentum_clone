@@ -66,7 +66,7 @@
     "babel-preset-es2015": "^6.2.0"
   },
   "scripts": {
-    "start": "gulp serve",
+    "start": "node dist/server",
     "build": "gulp",
     "serve": "gulp serve",
     "serve:dist": "gulp serve:dist",

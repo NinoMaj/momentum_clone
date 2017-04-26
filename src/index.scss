@@ -142,8 +142,11 @@ body {
 // QUOTES
 
 .Quotes {
-  position: relative;
-  margin-top: 80%;
+  position: fixed;
+  bottom: 10%;
+  width: 75%;
+  left: 50%;
+  margin-left: -37.5%;
   text-align: center;
   font-size: 1.2em;
   background-color: transparent;

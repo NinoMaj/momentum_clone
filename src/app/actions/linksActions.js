@@ -1,3 +1,4 @@
+/* eslint linebreak-style: 0 */
 export function clicked(state) {
   return {type: "CLICKED", state};
 }

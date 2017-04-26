@@ -1,3 +1,4 @@
+/* eslint linebreak-style: 0 */
 import {combineReducers} from 'redux';
 import todos from './todos';
 import mainFocus from './reducer_mainFocus';

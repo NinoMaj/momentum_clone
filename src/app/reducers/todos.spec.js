@@ -1,3 +1,4 @@
+/* eslint linebreak-style: 0 */
 import todos from './todos';
 import * as types from '../constants/ActionTypes';
 

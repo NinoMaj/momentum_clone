@@ -1,3 +1,4 @@
+/* eslint linebreak-style: 0 */
 const initialState = [
   {
     clicked: false,

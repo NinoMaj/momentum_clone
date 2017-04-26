@@ -1,3 +1,4 @@
+/* eslint linebreak-style: 0 */
 export function getRandomQoute(state) {
   return {type: "GETRANDOMQUOTE", state};
 }

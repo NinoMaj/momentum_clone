@@ -1,3 +1,4 @@
+/* eslint linebreak-style: 0 */
 import React, {Component, PropTypes} from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
@@ -39,7 +40,6 @@ class App extends Component {
     return (
       <div>
         <Links/>
-        <Clock/>
         <Search/>
         <Weather/>
         <Settings/>
@@ -54,14 +54,17 @@ class App extends Component {
               actions={actions}
               />
           </div>
-          )}
-        <MainFocus
-          mainFocus={this.props.mainFocus}
-          addMainFocus={actions.addMainFocus}
-          completeMainFocus={actions.completeMainFocus}
-          deleteMainFocus={actions.deleteMainFocus}
-          />
-        <Quotes/>
+        )}
+        <div className="middleWrapper">
+          <MainFocus
+            mainFocus={this.props.mainFocus}
+            addMainFocus={actions.addMainFocus}
+            completeMainFocus={actions.completeMainFocus}
+            deleteMainFocus={actions.deleteMainFocus}
+            />
+          <Clock/>
+          <Quotes/>
+        </div>
       </div>
     );
   }

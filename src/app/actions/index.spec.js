@@ -1,3 +1,4 @@
+/* eslint linebreak-style: 0 */
 import * as types from '../constants/ActionTypes';
 import * as actions from './index';
 

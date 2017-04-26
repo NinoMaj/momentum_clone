@@ -1,3 +1,4 @@
+/* eslint linebreak-style: 0 */
 import React from 'react';
 import TestUtils from 'react-addons-test-utils';
 import MainSection from './MainSection';

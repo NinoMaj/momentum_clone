@@ -1,3 +1,4 @@
+/* eslint linebreak-style: 0 */
 import React, {Component} from 'react';
 import About from '../components/About';
 import Help from '../components/Help';

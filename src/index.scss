@@ -26,25 +26,25 @@ body {
 
 // TODO CSS
 .openTodoLink {
-  color: #DA7777;
+  color: #5F021F;
   background-color: #FFFFFF;
   border-radius: 5px;
   text-align: center;
   font-size: 1.2em;
   position: fixed;
   padding: 5px;
-  right: 5%;
-  bottom: 1%;
+  right: 2%;
+  bottom: 2%;
   width: 50px;
 }
 
 .openTodoLink:hover {
-  color: #5F021F;
-  border: 1px solid #5F021F;
+  color: #DA7777;
+  border: 1px solid #DA7777;
 }
 
 .todosOpenPressed{
-  color: #5F021F;
+  color: #DA7777;
 }
 
 .todoContainer {
@@ -57,22 +57,22 @@ body {
 
 // END OF TODO
 
-// MAIN FOCUS
-
-.mainFocusWrapper{
-  position: absolute;
+.middleWrapper{
+  position: relative;
   margin: 0 auto;
   background: rgba(0,0,0,0.0);
   width: 100%;
   z-index: -1;
 }
 
+// MAIN FOCUS
+
 .viewFocus {
   position: relative;
   display: inline-block;
+  margin-top: 20%;
   height: 30px;
   width: 100%;
-  margin: 0 auto;
   font-weight: bold;
 }
 
@@ -142,8 +142,8 @@ body {
 // QUOTES
 
 .Quotes {
-  position: fixed;
-  bottom: 20%;
+  position: relative;
+  margin-top: 80%;
   text-align: center;
   font-size: 1.2em;
   background-color: transparent;
@@ -280,9 +280,8 @@ body {
 // END OF LINKS
 
 .clockStyle {
-  position: fixed;
-  top: 40%;
-  left: 40%;
+  position: relative;
+  margin-top: 15%;
   background-color: transparent;
   color: white;
   font-size: 85px;
@@ -291,8 +290,8 @@ body {
 
 .weatherStyle {
   position: fixed;
-  top: 5%;
-  right: 5%;
+  top: 2%;
+  right: 2%;
   background-color: transparent;
   color: white;
   font-size: 18px;
@@ -305,6 +304,9 @@ body {
 }
 
 .searchStyle {
+  position: fixed;
+  top: 1.5%;
+  left: 8%;
   width: 205px;
   color: white;
 }

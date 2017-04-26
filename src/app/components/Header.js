@@ -1,3 +1,4 @@
+/* eslint linebreak-style: 0 */
 import React, {PropTypes, Component} from 'react';
 import TodoTextInput from './TodoTextInput';
 

@@ -1,3 +1,4 @@
+/* eslint linebreak-style: 0 */
 import React, {Component, PropTypes} from 'react';
 import TodoItem from './TodoItem';
 import Footer from './Footer';

@@ -1,3 +1,4 @@
+/* eslint linebreak-style: 0 */
 import React, {Component, PropTypes} from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';

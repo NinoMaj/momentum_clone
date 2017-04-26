@@ -1,3 +1,4 @@
+/* eslint linebreak-style: 0 */
 import React from 'react';
 import axios from 'axios';
 

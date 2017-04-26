@@ -1,4 +1,4 @@
-/* eslint linebreak-style: ["error", "windows"] */
+/* eslint linebreak-style: 0 */
 import {ADD_MAIN_FOCUS, COMPLETE_MAIN_FOCUS, DELETE_MAIN_FOCUS} from '../constants/ActionTypes';
 
 const initialState = {

@@ -1,3 +1,4 @@
+/* eslint linebreak-style: 0 */
 import React, {Component, PropTypes} from 'react';
 import {connect} from 'react-redux';
 import classnames from 'classnames';
@@ -101,7 +102,7 @@ class MainFocus extends Component {
       );
     }
     return (
-      <div className="mainFocusWrapper">
+      <div>
         {element}
       </div>
     );

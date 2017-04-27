@@ -55,16 +55,14 @@ class App extends Component {
               />
           </div>
         )}
-        <div className="middleWrapper">
-          <MainFocus
-            mainFocus={this.props.mainFocus}
-            addMainFocus={actions.addMainFocus}
-            completeMainFocus={actions.completeMainFocus}
-            deleteMainFocus={actions.deleteMainFocus}
-            />
-          <Clock/>
-          <Quotes/>
-        </div>
+        <MainFocus
+          mainFocus={this.props.mainFocus}
+          addMainFocus={actions.addMainFocus}
+          completeMainFocus={actions.completeMainFocus}
+          deleteMainFocus={actions.deleteMainFocus}
+          />
+        <Clock/>
+        <Quotes/>
       </div>
     );
   }

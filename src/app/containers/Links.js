@@ -5,6 +5,8 @@ import {connect} from 'react-redux';
 import * as LinksActions from '../actions/linksActions';
 import LinkForm from '../components/LinkForm';
 import ListItem from '../components/ListItem';
+import Search from '../components/Search';
+import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 
 let cn = "";
 
@@ -65,16 +67,21 @@ class Links extends Component {
   }
 
   handleDelete(key) {
-    let list = JSON.parse(localStorage.list);
-    list = list.filter(obj => {
-      return obj.key !== key;
-    });
-    localStorage.list = JSON.stringify(list);
-    this.props.formAction(list);
+    if (localStorage.list) {
+      let list = JSON.parse(localStorage.list);
+      list = list.filter(obj => {
+        return obj.key !== key;
+      });
+      localStorage.list = JSON.stringify(list);
+      this.props.formAction(list);
+    }
   }
 
   render() {
-    const listAr = JSON.parse(localStorage.list);
+    let listAr = [];
+    if (localStorage.list) {
+      listAr = JSON.parse(localStorage.list);
+    }
     const listUlr = listAr.map(item => {
       const uri = `https://${item.url}`;
       return (
@@ -85,12 +92,14 @@ class Links extends Component {
     return (
       <div className="Links">
         {this.props.links[0].clicked ? <p className="LinksClicked" onClick={this.handleClicked}>Links</p> : <p id="LinksUnclicked" onClick={this.handleClicked}>Links</p>}
-
-        {this.props.links[0].clicked ? <div className="linksBackground">
+        <Search/>
+        {this.props.links[0].clicked ? <div className={this.props.links[0].clicked ? 'linksBackground enter' : ''}>
           <ul>
             <li><a href=""><span className="fa fa-chrome" aria-hidden="true"></span> Chrome Tab</a><i onClick={this.handlePlusClicked} className="fa fa-plus" aria-hidden="true"></i></li>
             <li><a href="chrome://apps/"><span className="fa fa-th" aria-hidden="true"></span>  Apps</a></li>
-            {listUlr}
+            <CSSTransitionGroup transitionName="linksItem" transitionEnterTimeout={300} transitionLeaveTimeout={300}>
+              {listUlr}
+            </CSSTransitionGroup>
           </ul>
           {this.props.links[0].plusClicked ? <div>
             <LinkForm/>

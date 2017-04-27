@@ -222,6 +222,24 @@ body {
   width: 170px;
 }
 
+.enter {
+  animation: Enter .3s;
+}
+
+@keyframes Enter {
+  from {opacity: 0}
+  to {opacity: 1}
+}
+
+.leave {
+  animation: Leave .3s;
+}
+
+@keyframes Leave {
+  from {opacity: 1}
+  to {opacity: 0}
+}
+
 .linksBackground ul {
   list-style-type: none;
   margin: 2px;
@@ -234,7 +252,7 @@ body {
 }
 
 .linksBackground i {
-  position: fixed;
+  position: relative;
   left: 11.5%;
 }
 
@@ -280,6 +298,24 @@ body {
   width: 1px;
 }
 
+.linksItem-enter {
+  opacity: 0.01;
+}
+
+.linksItem-enter.linksItem-enter-active {
+  opacity: 1;
+  transition: opacity 300ms ease-in;
+}
+
+.linksItem-leave {
+  opacity: 1;
+}
+
+.linksItem-leave.linksItem-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
+}
+
 // END OF LINKS
 
 .clockStyle {
@@ -307,9 +343,8 @@ body {
 }
 
 .searchStyle {
-  position: fixed;
-  top: 1.5%;
-  left: 8%;
+  margin-left: 75px;
+  margin-top: -70px;
   width: 205px;
   color: white;
 }
@@ -346,12 +381,13 @@ body {
   position: fixed;
   bottom: 2%;
   left: 2%;
+  width: 100%;
   color: #e0e0e0;
 }
 
 .settingsPage {
   height: 450px;
-  width: 650px;
+  width: 80%;
   border-radius: 5px;
   background-color: rgba(0, 0, 0, 0.8);;
   margin-bottom: 2%;
@@ -365,6 +401,7 @@ body {
   border-right: 1px solid #616161;
   padding-left: 5%;
   padding-top: 3%;
+  overflow-wrap: break-word;
 }
 
 .settingsRight {
@@ -387,4 +424,26 @@ body {
 
 .about a {
   color: #f5f5f5;
+}
+
+// GENERAL
+.general {
+  padding: 2%;
+  font-size: 1.1em;
+}
+
+.general li {
+  border-bottom: 1px solid #f5f5f5;
+  margin-left: -10%;
+  margin-right: 4%;
+  margin-bottom: 2%;
+}
+
+.general ul {
+  list-style-type: none;
+}
+
+.general ToggleSwitch {
+  position: relative;
+  left: 20%;
 }

@@ -2,6 +2,7 @@
 import React, {Component} from 'react';
 import About from '../components/About';
 import Help from '../components/Help';
+import General from '../components/General';
 
 class Settings extends Component {
   constructor(props) {
@@ -28,7 +29,7 @@ class Settings extends Component {
     const rs = this.state.rightSide;
     let rightSide = null;
     if (rs === 'general') {
-      rightSide = <general/>;
+      rightSide = <General/>;
     } else if (rs === 'todo') {
       rightSide = <p>todo</p>;
     } else if (rs === 'background') {

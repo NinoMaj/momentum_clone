@@ -11,9 +11,9 @@ import * as MainFocusActions from '../actions/mainFocus_actions';
 import Quotes from './Quotes';
 import Clock from '../components/Clock';
 import Weather from '../components/Weather';
-import Search from '../components/Search';
 import Links from './Links';
 import Settings from './Settings';
+import '@trendmicro/react-toggle-switch/dist/react-toggle-switch.css';
 
 class App extends Component {
   constructor() {
@@ -40,7 +40,6 @@ class App extends Component {
     return (
       <div>
         <Links/>
-        <Search/>
         <Weather/>
         <Settings/>
         <div className={todosOpenPressed} onClick={this.handleOpenOrCloseTodos}>todos</div>

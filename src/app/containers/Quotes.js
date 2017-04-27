@@ -47,7 +47,7 @@ class Quotes extends Component {
      // if it isn't fatch from API, save to storage and set to state
     if (todaysQuote.length === 0) {
       // get random quote
-      axios.get('http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1')
+      axios.get('https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1')
       .then(quote => {
         // strip the p tag
         quote.data[0].content = quote.data[0].content.slice(3, quote.data[0].content.length - 5);

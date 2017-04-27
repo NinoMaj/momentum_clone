@@ -40,8 +40,12 @@ class Weather extends React.Component {
   }
 
   apiHelper(lat, lon) {
+    // let axiosInstance = axios.create({
+    //   baseURL: 'https://crossorigin.me/api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&APPID=f02e9ad38636be6ba2296667fbde251b',
+    //   headers: {'X-Custom-Header': 'foobar'}
+    // });
     // Move this to backend later to protect api key
-    return axios.get(`https://crossorigin.me/api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&APPID=f02e9ad38636be6ba2296667fbde251b`);
+    return axios.get(`http://cors.io/?https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&APPID=f02e9ad38636be6ba2296667fbde251b`);
   }
 
   error(err) {

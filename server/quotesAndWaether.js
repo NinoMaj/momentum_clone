@@ -31,7 +31,7 @@ router.post('/weather', (req, res) => {
 router.post('/addQuote', authCheck, (req, res) => {
   User.findById(req.user._id, (error, user) => {
     if (error) {
-      console.log(error);
+      return res.status(400).send(error);
     }
 
     // check if todaysQuote is in storage already
@@ -49,20 +49,50 @@ router.post('/addQuote', authCheck, (req, res) => {
         // strip the p tag
         quote[0].content = quote[0].content.slice(3, quote[0].content.length - 5);
 
-        // add quote to user
-        user.quotes.push({
+        const resQuote = {
           date: req.body.date,
           quote: quote[0],
           favorite: false
-        });
+        };
+        // add quote to user
+        user.quotes.push(resQuote);
 
         user.save().then( () => {
-          return res.send(quote);
+          return res.send(resQuote);
         });
       })
     } else {
-      return res.send(todaysQuote);
+      return res.send(todaysQuote[0]);
     }
+  });
+})
+
+router.post('/changeFavoriteQuote', authCheck, (req, res) => {
+  User.findById(req.user._id, (error, user) => {
+    if (error) {
+      return res.status(400).send(error);
+    };
+    // find todays quote
+    const quotes = user.quotes;
+    const todaysQuote = quotes.filter(value => {
+      return value.date === req.body.date;
+    });
+
+    // change favorite value
+    const i = user.quotes.indexOf(todaysQuote[0]);
+    user.quotes[i].favorite = !user.quotes[i].favorite;
+
+    // save didnt work had to:
+    user.markModified(`quotes`);
+
+    //save user
+    user.save(err => {
+      if (err) {
+        console.log(err);
+      }
+    }).then(() => {
+      res.send(user.quotes[i].favorite);
+    });
   });
 })
 

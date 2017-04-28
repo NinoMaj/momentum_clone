@@ -30,15 +30,14 @@ class Quotes extends Component {
     date = `${dd}.${mm}.${yyyy}`;
 
     if (localStorage.token) {
-      axios.post('/quotesAndWaether/addQuote', {date})
+      axios.post('http://localhost:5000/quotesAndWaether/addQuote', {date})
       .then(res => {
-        console.log(res);
         // set state
         const state = {
           date,
-          quote: res.data[0].quote.content,
-          author: res.data[0].quote.title,
-          emptyHeart: false
+          quote: res.data.quote.content,
+          author: res.data.quote.title,
+          emptyHeart: !res.data.favorite
         };
         this.props.getRandomQoute(state);
       }).catch(error => {
@@ -49,37 +48,20 @@ class Quotes extends Component {
 
   // add to favorites and change the heart color
   handleHeartClicked() {
-    if (this.props.quotes[0].emptyHeart) {// add qoute to favorites
-      const favorites = JSON.parse(localStorage.favoriteQuotes);
-      favorites.push(this.props.quotes[0]);
-      localStorage.favoriteQuotes = JSON.stringify(favorites);
-
-      // change a heart color
+    const date = this.props.quotes[0].date;
+    axios.post('http://localhost:5000/quotesAndWaether/changeFavoriteQuote', {date})
+    .then(res => {
       const state = {
         date: this.props.quotes[0].date,
         quote: this.props.quotes[0].quote,
         author: this.props.quotes[0].author,
-        emptyHeart: false
+        emptyHeart: !res.data
       };
       this.props.getRandomQoute(state);
-    } else { // remove quote form favorites
-      let favorites = localStorage.favoriteQuotes;
-      favorites = JSON.parse(favorites);
-      const date = this.props.quotes[0].date;
-      favorites = favorites.filter(obj => {
-        return obj.date !== date;
-      });
-      localStorage.favoriteQuotes = JSON.stringify(favorites);
-
-      // change a heart color
-      const state = {
-        date: this.props.quotes[0].date,
-        quote: this.props.quotes[0].quote,
-        author: this.props.quotes[0].author,
-        emptyHeart: true
-      };
-      this.props.getRandomQoute(state);
-    }
+    })
+    .catch(error => {
+      console.log(error);
+    });
   }
 
   // generate link, and redirect to it

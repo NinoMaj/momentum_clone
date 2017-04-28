@@ -41,7 +41,10 @@ class Weather extends React.Component {
 
   apiHelper(lat, lon) {
     // Move this to backend later to protect api key
-    return axios.get(`https://crossorigin.me/http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&APPID=f02e9ad38636be6ba2296667fbde251b`);
+    return axios.post('/quotesAndWaether/weather', {
+      lat,
+      lon
+    });
   }
 
   error(err) {

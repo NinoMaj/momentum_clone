@@ -21,7 +21,7 @@ class Register extends Component {
   handleSubmit(event) {
     event.preventDefault();
     const name = this.state.value;
-    axios.post('http://localhost:5000/register', {name})
+    axios.post('/register', {name})
     .then(response => {
       localStorage.token = JSON.stringify(response.data);
       const state = {

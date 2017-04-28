@@ -30,7 +30,7 @@ class Quotes extends Component {
     date = `${dd}.${mm}.${yyyy}`;
 
     if (localStorage.token) {
-      axios.post('http://localhost:5000/quotesAndWaether/addQuote', {date})
+      axios.post('/quotesAndWaether/addQuote', {date})
       .then(res => {
         console.log(res);
         // set state

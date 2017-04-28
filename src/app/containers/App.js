@@ -39,10 +39,10 @@ class App extends Component {
     });
     return (
       <div>
-        <Links/>
-        <Weather/>
         <Settings/>
-        <div className={todosOpenPressed} onClick={this.handleOpenOrCloseTodos}>todos</div>
+        <Links/>
+        {this.props.widgets[0].Weather ? <Weather/> : <p></p>}
+        {this.props.widgets[0].Todo ? <div className={`enter ${todosOpenPressed}`} onClick={this.handleOpenOrCloseTodos}>todos</div> : <p></p>}
         {this.state.todosOpen === true && (
           <div className="todoContainer">
             <Header
@@ -55,14 +55,14 @@ class App extends Component {
           </div>
         )}
         <div className="middleWrapper">
-          <MainFocus
+          {this.props.widgets[0].Focus ? <MainFocus
             mainFocus={this.props.mainFocus}
             addMainFocus={actions.addMainFocus}
             completeMainFocus={actions.completeMainFocus}
             deleteMainFocus={actions.deleteMainFocus}
-            />
+            /> : <p></p>}
           <Clock/>
-          <Quotes/>
+          {this.props.widgets[0].Quotes ? <Quotes/> : <p></p>}
         </div>
       </div>
     );
@@ -72,13 +72,15 @@ class App extends Component {
 App.propTypes = {
   todos: PropTypes.array.isRequired,
   actions: PropTypes.object.isRequired,
-  mainFocus: PropTypes.object.isRequired
+  mainFocus: PropTypes.object.isRequired,
+  widgets: PropTypes.array
 };
 
 function mapStateToProps(state) {
   return {
     todos: state.todos,
-    mainFocus: state.mainFocus
+    mainFocus: state.mainFocus,
+    widgets: state.widgets
   };
 }
 

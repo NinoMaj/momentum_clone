@@ -44,7 +44,7 @@ class Settings extends Component {
 
     return (
       <div className="settings">
-        {this.state.show ? <div className="settingsPage">
+        {this.state.show ? <div className={this.state.show ? "settingsPage enter" : 'settingsPage'}>
           <div className="settingsLeft">
             <h3 onClick={this.handleChoose} id="general">General</h3>
             <h3 onClick={this.handleChoose} id="todo">Todo</h3>

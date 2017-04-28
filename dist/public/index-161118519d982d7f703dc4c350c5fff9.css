@@ -567,7 +567,8 @@ body {
   top: 2%;
   left: 2%;
   color: #e0e0e0;
-  font-size: 1.2em; }
+  font-size: 1.2em;
+  z-index: -1; }
 
 .LinksClicked {
   font-size: 1.4em;
@@ -684,7 +685,8 @@ body {
   background-color: transparent;
   color: white;
   font-size: 85px;
-  text-align: center; }
+  text-align: center;
+  z-index: -1; }
 
 .weatherStyle {
   position: fixed;
@@ -693,7 +695,8 @@ body {
   background-color: transparent;
   color: white;
   font-size: 18px;
-  text-align: center; }
+  text-align: center;
+  z-index: -1; }
 
 .weatherStyle img {
   width: 30px;
@@ -704,6 +707,10 @@ body {
   margin-top: -70px;
   width: 205px;
   color: white; }
+
+#searchNoLinks {
+  margin: auto;
+  margin-top: -25px; }
 
 .searchStyle input:focus {
   border-bottom: 3px solid white; }
@@ -732,11 +739,13 @@ body {
   bottom: 2%;
   left: 2%;
   width: 100%;
+  height: auto;
   color: #e0e0e0; }
 
 .settingsPage {
-  height: 450px;
-  width: 80%;
+  height: 350px;
+  width: 90%;
+  max-width: 700px;
   border-radius: 5px;
   background-color: rgba(0, 0, 0, 0.8);
   margin-bottom: 2%;
@@ -776,13 +785,18 @@ body {
 
 .general li {
   border-bottom: 1px solid #f5f5f5;
-  margin-left: -10%;
   margin-right: 4%;
   margin-bottom: 2%; }
 
 .general ul {
   list-style-type: none; }
 
-.general ToggleSwitch {
-  position: relative;
-  left: 20%; }
+.switch {
+  float: right; }
+
+.example-appear {
+  opacity: 0; }
+
+.example-appear.example-appear-active {
+  opacity: 1;
+  transition: opacity .5s ease-in; }

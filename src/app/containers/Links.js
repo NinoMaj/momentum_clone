@@ -91,8 +91,8 @@ class Links extends Component {
 
     return (
       <div className="Links">
-        {this.props.links[0].clicked ? <p className="LinksClicked" onClick={this.handleClicked}>Links</p> : <p id="LinksUnclicked" onClick={this.handleClicked}>Links</p>}
-        <Search/>
+        {this.props.widgets[0].Links ? <div>{this.props.links[0].clicked ? <p className="LinksClicked enter" onClick={this.handleClicked}>Links</p> : <p id="LinksUnclicked" className="enter" onClick={this.handleClicked}>Links</p>}</div> : <p></p>}
+        {this.props.widgets[0].Search ? <Search/> : <p></p>}
         {this.props.links[0].clicked ? <div className={this.props.links[0].clicked ? 'linksBackground enter' : ''}>
           <ul>
             <li><a href=""><span className="fa fa-chrome" aria-hidden="true"></span> Chrome Tab</a><i onClick={this.handlePlusClicked} className="fa fa-plus" aria-hidden="true"></i></li>
@@ -114,13 +114,15 @@ Links.propTypes = {
   links: PropTypes.array,
   clicked: PropTypes.func,
   form: PropTypes.array,
-  formAction: PropTypes.func
+  formAction: PropTypes.func,
+  widgets: PropTypes.array
 };
 
 function mapStateToProps(state) {
   return {
     links: state.links,
-    form: state.form
+    form: state.form,
+    widgets: state.widgets
   };
 }
 

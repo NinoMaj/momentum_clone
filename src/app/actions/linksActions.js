@@ -6,3 +6,7 @@ export function clicked(state) {
 export function form(state) {
   return {type: "FORM", state};
 }
+
+export function widgets(state) {
+  return {type: "WIDGETS", state};
+}

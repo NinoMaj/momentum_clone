@@ -102,7 +102,7 @@ class MainFocus extends Component {
       );
     }
     return (
-      <div>
+      <div className="enter">
         {element}
       </div>
     );

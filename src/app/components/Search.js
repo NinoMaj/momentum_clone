@@ -1,7 +1,9 @@
 /* eslint linebreak-style: 0 */
-import React from 'react';
+import React, {Component, PropTypes} from 'react';
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
 
-class Search extends React.Component {
+class Search extends Component {
   constructor(props) {
     super(props);
 
@@ -25,7 +27,7 @@ class Search extends React.Component {
 
   render() {
     return (
-      <div className="searchStyle">
+      <div className="searchStyle enter" id={this.props.widgets[0].Links ? "" : "searchNoLinks"}>
         <form onSubmit={this.handleSubmit}>
           <i
             className="fa fa-search"
@@ -48,4 +50,25 @@ Search.contextTypes = {
   router: React.PropTypes.object.isRequired
 };
 
-export default Search;
+Search.propTypes = {
+  links: PropTypes.array,
+  clicked: PropTypes.func,
+  form: PropTypes.array,
+  formAction: PropTypes.func,
+  widgets: PropTypes.array
+};
+
+function mapStateToProps(state) {
+  return {
+    widgets: state.widgets
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({}, dispatch);
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Search);

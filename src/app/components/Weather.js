@@ -51,7 +51,7 @@ class Weather extends React.Component {
   render() {
     const {city, temperature, icon} = this.state;
     return (
-      <div className="weatherStyle">
+      <div className="weatherStyle enter">
         {icon ? <img src={`http://openweathermap.org/img/w/${icon}.png`}/> : ''}
         <span>{Math.round(temperature - 272.15)}&deg;C</span><br/>
         <small>{city}</small>

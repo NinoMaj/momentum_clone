@@ -8,6 +8,14 @@ require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+const connect = process.env.MONGODB_URI || "mongodb://localhost/momentum"
+
+//plug in promise liblary
+mongoose.Promise = global.Promise;
+
+mongoose.connect(connect);
+mongoose.connection.on('connected', () => console.log('connected to db'))
+
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -15,8 +23,11 @@ app.use(bodyParser.json());
 app.use(express.static(path.resolve(__dirname, '../react-ui/dist/public')));
 
 //setting the routes
-const quotesAndWaether = require('./quotesAndWaether')
+const quotesAndWaether = require('./quotesAndWaether');
 app.use('/quotesAndWaether', quotesAndWaether);
+
+const register = require('./register');
+app.use('/register', register);
 
 // All remaining requests return the React app, so it can handle routing.
 app.get('*', function(request, response) {

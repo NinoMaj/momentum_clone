@@ -10,3 +10,7 @@ export function form(state) {
 export function widgets(state) {
   return {type: "WIDGETS", state};
 }
+
+export function token(state) {
+  return {type: "TOKEN", state};
+}

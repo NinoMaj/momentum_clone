@@ -13,7 +13,13 @@ import Clock from '../components/Clock';
 import Weather from '../components/Weather';
 import Links from './Links';
 import Settings from './Settings';
+import Register from './Register';
 import '@trendmicro/react-toggle-switch/dist/react-toggle-switch.css';
+import axios from 'axios';
+
+if (localStorage.token) {
+  axios.defaults.headers.common.Authorization = localStorage.token;
+}
 
 class App extends Component {
   constructor() {
@@ -41,6 +47,7 @@ class App extends Component {
       <div>
         <Settings/>
         <Links/>
+        {this.props.token[0].token ? <p></p> : <Register/>}
         {this.props.widgets[0].Weather ? <Weather/> : <p></p>}
         {this.props.widgets[0].Todo ? <div className={`enter ${todosOpenPressed}`} onClick={this.handleOpenOrCloseTodos}>todos</div> : <p></p>}
         {this.state.todosOpen === true && (
@@ -73,14 +80,16 @@ App.propTypes = {
   todos: PropTypes.array.isRequired,
   actions: PropTypes.object.isRequired,
   mainFocus: PropTypes.object.isRequired,
-  widgets: PropTypes.array
+  widgets: PropTypes.array,
+  token: PropTypes.array
 };
 
 function mapStateToProps(state) {
   return {
     todos: state.todos,
     mainFocus: state.mainFocus,
-    widgets: state.widgets
+    widgets: state.widgets,
+    token: state.token
   };
 }
 

@@ -26,7 +26,7 @@ router.post('/addLink', authCheck, (req, res) => {
     req.body.listItem._id = mongoose.Types.ObjectId();
     user.links.push(req.body.listItem);
     user.save().then(() => {
-      return res.send('ddd');
+      return res.send(req.body.listItem);
     });
   });
 })

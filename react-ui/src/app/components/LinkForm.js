@@ -25,10 +25,10 @@ class LinkForm extends Component {
       url: this.state.value1
     };
     axios.post('links/addLink', {listItem})
-    .then(() => {
+    .then(res => {
       const state = this.props.links[0];
       state.plusClicked = false;
-      state.list.push(listItem);
+      state.list.push(res.data);
       this.setState({value: '', value1: ''});
       this.props.form(state);
     })

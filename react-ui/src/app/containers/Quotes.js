@@ -21,6 +21,10 @@ class Quotes extends Component {
     this.changeClass = this.changeClass.bind(this);
   }
 
+  componentDidMount() {
+    this.getRandomQoute();
+  }
+
   getRandomQoute() {
     // get date
     let date = new Date();
@@ -30,7 +34,7 @@ class Quotes extends Component {
     date = `${dd}.${mm}.${yyyy}`;
 
     if (localStorage.token) {
-      axios.post('http://localhost:5000/quotesAndWaether/addQuote', {date})
+      axios.post('quotes/addQuote', {date})
       .then(res => {
         // set state
         const state = {
@@ -49,7 +53,7 @@ class Quotes extends Component {
   // add to favorites and change the heart color
   handleHeartClicked() {
     const date = this.props.quotes[0].date;
-    axios.post('http://localhost:5000/quotesAndWaether/changeFavoriteQuote', {date})
+    axios.post('quotes/changeFavoriteQuote', {date})
     .then(res => {
       const state = {
         date: this.props.quotes[0].date,
@@ -94,10 +98,6 @@ class Quotes extends Component {
   changeClass() {
     cn = this.props.hover[0].hover === true ? "" : "Slide";
     cn1 = this.props.hover[0].hover === true ? "" : "AnimationTwo";
-  }
-
-  componentDidMount() {
-    this.getRandomQoute();
   }
 
   render() {

@@ -3,6 +3,7 @@ import React, {Component, PropTypes} from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import * as LinksActions from '../actions/linksActions';
+import axios from 'axios';
 
 class LinkForm extends Component {
   constructor(props) {
@@ -23,11 +24,17 @@ class LinkForm extends Component {
       title: this.state.value,
       url: this.state.value1
     };
-    this.props.form(listItem);
-    const ar = JSON.parse(localStorage.list);
-    listItem.key = ar.length + 1;
-    ar.push(listItem);
-    localStorage.list = JSON.stringify(ar);
+    axios.post('links/addLink', {listItem})
+    .then(() => {
+      const state = this.props.links[0];
+      state.plusClicked = false;
+      state.list.push(listItem);
+      this.setState({value: '', value1: ''});
+      this.props.form(state);
+    })
+    .catch(error => {
+      console.log(error);
+    });
   }
 
   render() {
@@ -48,7 +55,8 @@ function mapStateToProps(state) {
 }
 
 LinkForm.propTypes = {
-  form: PropTypes.func
+  form: PropTypes.func,
+  links: PropTypes.array
 };
 
 function mapDispatchToProps(dispatch) {

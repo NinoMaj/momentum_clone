@@ -24,7 +24,7 @@ class LinkForm extends Component {
       title: this.state.value,
       url: this.state.value1
     };
-    axios.post('links/addLink', {listItem})
+    axios.post('http://localhost:5000/links/addLink', {listItem})
     .then(res => {
       const state = this.props.links[0];
       state.plusClicked = false;

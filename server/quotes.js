@@ -87,4 +87,54 @@ router.post('/changeFavoriteQuote', authCheck, (req, res) => {
   });
 })
 
+router.get('/getQuotesAndFavorites', authCheck, (req, res) => {
+  User.findById(req.user._id, (error, user) => {
+    if (error) {
+      return res.status(400).send(error);
+    }
+
+    const favorites = user.quotes.filter(item => {
+      return item.favorite == true;
+    });
+
+    const response = {
+      favorites,
+      quotes: user.quotes
+    }
+    return res.send(response);
+  });
+})
+
+router.post('/FindAndChangeFavorite', authCheck, (req, res) => {
+  User.findById(req.user._id, (error, user) => {
+    if (error) {
+      return res.status(400).send(error);
+    }
+
+    const todaysQuote = user.quotes.filter(value => {
+      return value.date === req.body.date;
+    });
+
+    // change favorite value
+    const i = user.quotes.indexOf(todaysQuote[0]);
+    user.quotes[i].favorite = !user.quotes[i].favorite;
+
+    // save didnt work had to:
+    user.markModified(`quotes`);
+
+    //save user
+    user.save(err => {
+      if (err) {
+        console.log(err);
+      }
+    }).then(() => {
+      const Q = {
+        fav: user.quotes[i].favorite,
+        i
+      }
+      res.send(Q);
+    });
+  });
+})
+
 module.exports = router;

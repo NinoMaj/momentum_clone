@@ -815,3 +815,37 @@ body {
   margin-top: 150px;
   width: 50%;
   max-width: 400px; }
+
+.QuotesSettings {
+  height: 100%;
+  width: auto;
+  overflow-y: scroll;
+  padding: 1%; }
+
+.topBar {
+  text-align: center;
+  border-bottom: 1px solid #f5f5f5;
+  padding: -2%; }
+
+#rightSpan {
+  margin-right: -30%;
+  margin-left: 25%; }
+
+#leftSpan {
+  margin-left: -25%;
+  margin-right: -5%; }
+
+.QuotesSettings li {
+  list-style-type: none;
+  border-bottom: 1px solid #e0e0e0;
+  margin-right: 4%;
+  margin-bottom: 2%;
+  padding-top: 2%; }
+
+.QuotesListItem {
+  font-size: 1.1em;
+  color: #f5f5f5; }
+
+#author {
+  font-size: 0.8em;
+  color: #e0e0e0; }

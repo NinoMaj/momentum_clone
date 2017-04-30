@@ -8,9 +8,10 @@ import links from './links';
 import form from './form';
 import widgets from './widgets';
 import token from './token';
+import quotesSettings from './quotesSettings';
 
 const rootReducer = combineReducers({
-  todos, quotes, hover, links, form, mainFocus, widgets, token
+  todos, quotes, hover, links, form, mainFocus, widgets, token, quotesSettings
 });
 
 export default rootReducer;

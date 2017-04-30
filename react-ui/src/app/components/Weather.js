@@ -41,7 +41,7 @@ class Weather extends React.Component {
 
   apiHelper(lat, lon) {
     // Move this to backend later to protect api key
-    return axios.post('/quotesAndWaether/weather', {
+    return axios.post('weather/', {
       lat,
       lon
     });

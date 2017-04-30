@@ -57,14 +57,6 @@ body {
 
 // END OF TODO
 
-.middleWrapper{
-  position: relative;
-  margin: 0 auto;
-  background: rgba(0,0,0,0.0);
-  width: 100%;
-  z-index: -1;
-}
-
 // MAIN FOCUS
 
 .viewFocus {
@@ -320,8 +312,11 @@ body {
 // END OF LINKS
 
 .clockStyle {
-  position: relative;
-  margin-top: 15%;
+  position: fixed;
+  top: 30%;
+  width: 100%;
+  left: 50%;
+  margin-left: -50%;
   background-color: transparent;
   color: white;
   font-size: 85px;

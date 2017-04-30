@@ -1,3 +1,4 @@
+/* eslint linebreak-style: 0 */
 import 'babel-polyfill';
 
 import React from 'react';

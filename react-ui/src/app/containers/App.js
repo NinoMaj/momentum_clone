@@ -61,6 +61,7 @@ class App extends Component {
               />
           </div>
         )}
+
         {this.props.widgets[0].Focus ? <MainFocus
           mainFocus={this.props.mainFocus}
           addMainFocus={actions.addMainFocus}
@@ -69,6 +70,7 @@ class App extends Component {
           /> : <p></p>}
         <Clock/>
         {this.props.widgets[0].Quotes ? <Quotes/> : <p></p>}
+
       </div>
     );
   }

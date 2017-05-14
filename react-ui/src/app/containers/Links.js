@@ -7,8 +7,7 @@ import LinkForm from '../components/LinkForm';
 import ListItem from '../components/ListItem';
 import Search from '../components/Search';
 import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
-
-let cn = "";
+import axios from 'axios';
 
 class Links extends Component {
   constructor(props) {
@@ -19,76 +18,79 @@ class Links extends Component {
     this.handleDelete = this.handleDelete.bind(this);
   }
 
+  componentDidMount() {
+    this.getLinks();
+  }
+
+  getLinks() {
+    axios.get('links/getLinks')
+    .then(res => {
+      const listAr = res.data;
+      const state = this.props.links[0];
+      state.list = listAr;
+      this.props.formAction(state);
+    })
+    .catch(error => {
+      console.log(error);
+    });
+  }
+
+  handleDelete(key) {
+    axios.post('links/removeLink', {key})
+    .then(res => {
+      const state = this.props.links[0];
+      state.list = res.data;
+      this.props.formAction(state);
+    })
+    .catch(error => {
+      console.log(error);
+    });
+  }
+
   handleClicked() {
     if (this.props.links[0].clicked) {
       const state = {
         clicked: false,
-        plusClicked: false
+        plusClicked: false,
+        list: this.props.links[0].list
       };
-      this.props.clicked(state);
-      const hover = {
-        hover: false
-      };
-      this.props.formAction(hover);
-      this.changeClass();
+      this.props.formAction(state);
     } else {
       const state = {
         clicked: true,
-        plusClicked: false
+        plusClicked: false,
+        list: this.props.links[0].list
       };
-      this.props.clicked(state);
-      const hover = {
-        hover: true
-      };
-      this.props.formAction(hover);
-      this.changeClass();
+      this.props.formAction(state);
     }
-  }
-
-  changeClass() {
-    cn = this.props.form[0].hover === true ? "" : "SlideLinks";
-    console.log(cn);
   }
 
   handlePlusClicked() {
     if (this.props.links[0].plusClicked) {
       const state = {
         clicked: true,
-        plusClicked: false
+        plusClicked: false,
+        list: this.props.links[0].list
       };
-      this.props.clicked(state);
+      this.props.formAction(state);
     } else {
       const state = {
         clicked: true,
-        plusClicked: true
+        plusClicked: true,
+        list: this.props.links[0].list
       };
-      this.props.clicked(state);
-    }
-  }
-
-  handleDelete(key) {
-    if (localStorage.list) {
-      let list = JSON.parse(localStorage.list);
-      list = list.filter(obj => {
-        return obj.key !== key;
-      });
-      localStorage.list = JSON.stringify(list);
-      this.props.formAction(list);
+      this.props.formAction(state);
     }
   }
 
   render() {
-    let listAr = [];
-    if (localStorage.list) {
-      listAr = JSON.parse(localStorage.list);
-    }
+    const listAr = this.props.links[0].list;
     const listUlr = listAr.map(item => {
       const uri = `https://${item.url}`;
       return (
-        <ListItem key={item.key} item={item} uri={uri} onItemClick={this.handleDelete}/>
+        <ListItem key={item._id} item={item} uri={uri} onItemClick={this.handleDelete}/>
       );
     });
-
     return (
       <div className="Links">
         {this.props.widgets[0].Links ? <div>{this.props.links[0].clicked ? <p className="LinksClicked enter" onClick={this.handleClicked}>Links</p> : <p id="LinksUnclicked" className="enter" onClick={this.handleClicked}>Links</p>}</div> : <p></p>}

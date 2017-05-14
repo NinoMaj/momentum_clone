@@ -21,6 +21,10 @@ class Quotes extends Component {
     this.changeClass = this.changeClass.bind(this);
   }
 
+  componentDidMount() {
+    this.getRandomQoute();
+  }
+
   getRandomQoute() {
     // get date
     let date = new Date();
@@ -29,101 +33,39 @@ class Quotes extends Component {
     const yyyy = date.getFullYear();
     date = `${dd}.${mm}.${yyyy}`;
 
-    // if localStorage has no quotes at all,
-    // initiate an empty arrays for quotes and favoriteQuotes
-    if (!localStorage.quotes) {
-      localStorage.quotes = JSON.stringify([]);
-      localStorage.favoriteQuotes = JSON.stringify([]);
-      localStorage.list = JSON.stringify([]);
-    }
-
-    // check if todaysQuote is in storage already
-    let quotes = localStorage.quotes;
-    quotes = JSON.parse(quotes);
-    const todaysQuote = quotes.filter(value => {
-      return value.date === date;
-    });
-
-     // if it isn't fatch from API, save to storage and set to state
-    if (todaysQuote.length === 0) {
-      // get random quote
-      axios.get('https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1')
-      .then(quote => {
-        // strip the p tag
-        quote.data[0].content = quote.data[0].content.slice(3, quote.data[0].content.length - 5);
-        // save to localStorage
-        let quotes = localStorage.quotes;
-        quotes = JSON.parse(quotes);
-        quotes.push({
-          date,
-          quote: quote.data[0]
-        });
-        localStorage.quotes = JSON.stringify(quotes);
-
+    if (localStorage.token) {
+      axios.post('quotes/addQuote', {date})
+      .then(res => {
         // set state
         const state = {
           date,
-          quote: quote.data[0].content,
-          author: quote.data[0].title,
-          emptyHeart: false
+          quote: res.data.quote.content,
+          author: res.data.quote.title,
+          emptyHeart: !res.data.favorite
         };
         this.props.getRandomQoute(state);
+      }).catch(error => {
+        console.log(error);
       });
-    } else {  // if you do not fetch it just set it from localStorage.quotes
-      // check if todaysQuote is in the favorites, color heart aprorietly
-      let heart;
-      const favorite = JSON.parse(localStorage.favoriteQuotes);
-      const todaysFavorite = favorite.filter(value => {
-        return value.quote === todaysQuote[0].quote.content;
-      });
-      if (todaysFavorite.length === 0) {
-        heart = true;
-      } else {
-        heart = false;
-      }
-      const state = {
-        date,
-        quote: todaysQuote[0].quote.content,
-        author: todaysQuote[0].quote.title,
-        emptyHeart: heart
-      };
-      this.props.getRandomQoute(state);
     }
   }
 
   // add to favorites and change the heart color
   handleHeartClicked() {
-    if (this.props.quotes[0].emptyHeart) {// add qoute to favorites
-      const favorites = JSON.parse(localStorage.favoriteQuotes);
-      favorites.push(this.props.quotes[0]);
-      localStorage.favoriteQuotes = JSON.stringify(favorites);
-
-      // change a heart color
+    const date = this.props.quotes[0].date;
+    axios.post('quotes/changeFavoriteQuote', {date})
+    .then(res => {
       const state = {
         date: this.props.quotes[0].date,
         quote: this.props.quotes[0].quote,
         author: this.props.quotes[0].author,
-        emptyHeart: false
+        emptyHeart: !res.data
       };
       this.props.getRandomQoute(state);
-    } else { // remove quote form favorites
-      let favorites = localStorage.favoriteQuotes;
-      favorites = JSON.parse(favorites);
-      const date = this.props.quotes[0].date;
-      favorites = favorites.filter(obj => {
-        return obj.date !== date;
-      });
-      localStorage.favoriteQuotes = JSON.stringify(favorites);
-
-      // change a heart color
-      const state = {
-        date: this.props.quotes[0].date,
-        quote: this.props.quotes[0].quote,
-        author: this.props.quotes[0].author,
-        emptyHeart: true
-      };
-      this.props.getRandomQoute(state);
-    }
+    })
+    .catch(error => {
+      console.log(error);
+    });
   }
 
   // generate link, and redirect to it
@@ -158,10 +100,6 @@ class Quotes extends Component {
     cn1 = this.props.hover[0].hover === true ? "" : "AnimationTwo";
   }
 
-  componentDidMount() {
-    this.getRandomQoute();
-  }
-
   render() {
     // convert quote to normal text not encoded html
     const cleanHtml = sanitizeHtml(this.props.quotes[0].quote, {
@@ -171,7 +109,7 @@ class Quotes extends Component {
     });
 
     return (
-      <div className={`Quotes enter ${cn}`} onMouseOver={this.handleMouseOverQuote} onMouseOut={this.handleMouseOut}><strong>{cleanHtml}</strong>
+      <div className={`Quotes ${cn}`} onMouseOver={this.handleMouseOverQuote} onMouseOut={this.handleMouseOut}><strong>{cleanHtml}</strong>
         <p className={`Author ${cn1}`}>{this.props.quotes[0].author}<span> </span>
         {this.props.quotes[0].emptyHeart ? <i onClick={this.handleHeartClicked} className="fa fa-heart-o" aria-hidden="true"></i> :
           <i onClick={this.handleHeartClicked} className="fa fa-heart" aria-hidden="true"></i>}

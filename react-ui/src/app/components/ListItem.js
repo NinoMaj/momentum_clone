@@ -14,7 +14,7 @@ class ListItem extends Component {
   }
 
   handleClick() {
-    this.props.onItemClick(this.props.item.key);
+    this.props.onItemClick(this.props.item._id);
   }
 }
 

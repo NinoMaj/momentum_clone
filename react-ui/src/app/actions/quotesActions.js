@@ -10,3 +10,7 @@ export function changeHover(state) {
 export function chagneHeart(state) {
   return {type: "CHANGEHEART", state};
 }
+
+export function settings(state) {
+  return {type: "QUOTESSETTINGS", state};
+}

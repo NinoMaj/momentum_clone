@@ -4,6 +4,7 @@ import About from '../components/About';
 import Help from '../components/Help';
 import General from '../components/General';
 import Background from './Background';
+import QuotesSettings from '../components/QuotesSettings';
 
 class Settings extends Component {
   constructor(props) {
@@ -36,7 +37,7 @@ class Settings extends Component {
     } else if (rs === 'background') {
       rightSide = <Background/>;
     } else if (rs === 'quotes') {
-      rightSide = <p>quotes</p>;
+      rightSide = <QuotesSettings/>;
     } else if (rs === 'help') {
       rightSide = <Help/>;
     } else if (rs === 'about') {

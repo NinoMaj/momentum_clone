@@ -25,6 +25,19 @@ class App extends Component {
     this.handleOpenOrCloseTodos = this.handleOpenOrCloseTodos.bind(this);
   }
 
+  componentDidMount() {
+    // console.log('html', document.getElementsByTagName("body"));
+    // axios.get('https://api.desktoppr.co/1/wallpapers/random')
+    //   .then(response => {
+    //     console.log(response);
+    //     console.log(response.data.response.image.url);
+    //     document.getElementsByTagName("HTML")[0].style.background = `url(${response.data.response.image.url}) no-repeat center center fixed`;
+    //   })
+    //   .catch(error => {
+    //     console.log(error);
+    //   });
+  }
+
   handleOpenOrCloseTodos() {
     this.setState({
       todosOpen: !this.state.todosOpen
@@ -42,7 +55,7 @@ class App extends Component {
         <Settings/>
         <Links/>
         {this.props.widgets[0].Weather ? <Weather/> : <p></p>}
-        {this.props.widgets[0].Todo ? <div className={`enter ${todosOpenPressed}`} onClick={this.handleOpenOrCloseTodos}>todos</div> : <p></p>}
+        {this.props.widgets[0].Todo ? <div className={`enter ${todosOpenPressed}`} onClick={this.handleOpenOrCloseTodos}>Todo</div> : <p></p>}
         {this.state.todosOpen === true && (
           <div className="todoContainer">
             <Header

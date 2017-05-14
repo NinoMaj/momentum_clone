@@ -7,10 +7,10 @@ class MainFocus extends Component {
   constructor(props) {
     super(props);
 
-    this.state = ({
+    this.state = {
       text: this.props.mainFocus.text || '',
       editing: false
-    });
+    };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);

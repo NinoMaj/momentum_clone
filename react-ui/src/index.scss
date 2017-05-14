@@ -26,11 +26,9 @@ body {
 
 // TODO CSS
 .openTodoLink {
-  color: #5F021F;
-  background-color: #FFFFFF;
-  border-radius: 5px;
+  color: #bbb;
   text-align: center;
-  font-size: 1.2em;
+  font-size: 1.5em;
   position: fixed;
   padding: 5px;
   right: 2%;
@@ -39,12 +37,11 @@ body {
 }
 
 .openTodoLink:hover {
-  color: #DA7777;
-  border: 1px solid #DA7777;
+  color: #ddd;
 }
 
 .todosOpenPressed{
-  color: #DA7777;
+  color: #fff;
 }
 
 .todoContainer {
@@ -319,7 +316,7 @@ body {
   margin-left: -50%;
   background-color: transparent;
   color: white;
-  font-size: 85px;
+  font-size: 60px;
   text-align: center;
   z-index: -1;
 }
@@ -414,6 +411,41 @@ body {
   float: right;
   width: 69%;
   height: 99%;
+}
+
+.background{
+  color: #aaa;
+
+  h2 {
+    color: #eee;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  li {
+    display: inline-block;
+    margin-right: 5%;
+    &:hover{
+      color: #eee;
+      cursor: pointer;
+    }
+
+  }
+    .active {
+      border-bottom: 3px solid #eee;
+      color: #eee;
+    }
+
+  .line-separator {  
+    display: absolute;
+    height:1px;
+    background:#717171;
+    border-bottom:1px solid #313030;
+    width: 98%;
+  }
 }
 
 // About

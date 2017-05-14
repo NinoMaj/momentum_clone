@@ -1,3 +1,4 @@
+/* eslint linebreak-style: 0 */
 import {createStore} from 'redux';
 import rootReducer from '../reducers/index';
 

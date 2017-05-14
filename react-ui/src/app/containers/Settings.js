@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import About from '../components/About';
 import Help from '../components/Help';
 import General from '../components/General';
+import Background from './Background';
 
 class Settings extends Component {
   constructor(props) {
@@ -33,7 +34,7 @@ class Settings extends Component {
     } else if (rs === 'todo') {
       rightSide = <p>todo</p>;
     } else if (rs === 'background') {
-      rightSide = <p>background</p>;
+      rightSide = <Background/>;
     } else if (rs === 'quotes') {
       rightSide = <p>quotes</p>;
     } else if (rs === 'help') {

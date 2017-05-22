@@ -35,6 +35,9 @@ app.use('/links', links);
 const weather = require('./weather');
 app.use('/weather', weather);
 
+const background = require('./background');
+app.use('/background', background);
+
 // All remaining requests return the React app, so it can handle routing.
 app.get('*', function(request, response) {
   response.sendFile(path.resolve(__dirname, '../react-ui/dist/public', 'index.html'));

@@ -8,6 +8,7 @@ import MainFocus from './MainFocus';
 import classnames from 'classnames';
 import * as TodoActions from '../actions/index';
 import * as MainFocusActions from '../actions/mainFocus_actions';
+import * as BackgroundActions from '../actions/background_actions';
 import Quotes from './Quotes';
 import Clock from '../components/Clock';
 import Weather from '../components/Weather';
@@ -32,16 +33,18 @@ class App extends Component {
   }
 
   componentDidMount() {
-    // console.log('html', document.getElementsByTagName("body"));
-    // axios.get('https://api.desktoppr.co/1/wallpapers/random')
+    this.storeBackgroundInHistory();
+  }
+
+  storeBackgroundInHistory() {
+    // axios.post('/background/addBackgroundHistory')
     //   .then(response => {
-    //     console.log(response);
-    //     console.log(response.data.response.image.url);
-    //     document.getElementsByTagName("HTML")[0].style.background = `url(${response.data.response.image.url}) no-repeat center center fixed`;
+    //     console.log(response.data);
     //   })
     //   .catch(error => {
     //     console.log(error);
     //   });
+    this.props.actions.addBackgroundAsync();
   }
 
   handleOpenOrCloseTodos() {
@@ -108,7 +111,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(Object.assign({}, TodoActions, MainFocusActions), dispatch)
+    actions: bindActionCreators(Object.assign({}, TodoActions, MainFocusActions, BackgroundActions), dispatch)
   };
 }
 

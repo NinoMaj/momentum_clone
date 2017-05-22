@@ -10,7 +10,12 @@ const UserSchema = new Schema({
     indes: true
   },
   quotes: {type: Array, default: []},
-  links: {type: Array, default: []}
+  links: {type: Array, default: []},
+  backgroundHistory: [{
+    date: Date,
+    link: String,
+    favorite: Boolean
+  }]
 });
 
 UserSchema.methods.generateJWT = function () {

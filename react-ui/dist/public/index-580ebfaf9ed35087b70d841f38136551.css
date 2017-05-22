@@ -41,6 +41,7 @@
   bottom: 0;
   border-color: #bbb;
   background-color: #bbb;
+  -webkit-transition: all 0.4s ease;
   transition: all 0.4s ease; }
 
 .toggle-switch---toggle---mncCu:hover {
@@ -54,6 +55,7 @@
   left: 1px;
   bottom: 1px;
   background-color: #fff;
+  -webkit-transition: all 0.24s ease;
   transition: all 0.24s ease;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
   border-radius: 50%; }
@@ -258,6 +260,7 @@ body {
   padding: 15px 15px 15px 60px;
   display: block;
   line-height: 1.2;
+  -webkit-transition: color 0.4s;
   transition: color 0.4s; }
 
 .todo-list li.completed label {
@@ -276,6 +279,7 @@ body {
   font-size: 30px;
   color: #cc9a9a;
   margin-bottom: 11px;
+  -webkit-transition: color 0.2s ease-out;
   transition: color 0.2s ease-out; }
 
 .todo-list li .destroy:hover {
@@ -387,13 +391,10 @@ html .clear-completed:active {
     height: 50px; }
   .filters {
     bottom: 10px; } }
-html {
-  background: url("https://source.unsplash.com/category/nature/daily") no-repeat center center fixed;
+body {
+  background: url("https://source.unsplash.com/category/nature") no-repeat center center fixed;
   background-size: cover;
   height: 100%; }
-
-body {
-  background-color: transparent; }
 
 .newTodoTextInput {
   font-size: 1.2em; }
@@ -405,11 +406,9 @@ body {
   font-size: 0.7em; }
 
 .openTodoLink {
-  color: #5F021F;
-  background-color: #FFFFFF;
-  border-radius: 5px;
+  color: #bbb;
   text-align: center;
-  font-size: 1.2em;
+  font-size: 1.5em;
   position: fixed;
   padding: 5px;
   right: 2%;
@@ -417,11 +416,10 @@ body {
   width: 50px; }
 
 .openTodoLink:hover {
-  color: #DA7777;
-  border: 1px solid #DA7777; }
+  color: #ddd; }
 
 .todosOpenPressed {
-  color: #DA7777; }
+  color: #fff; }
 
 .todoContainer {
   position: fixed;
@@ -429,13 +427,6 @@ body {
   bottom: 5%;
   background-color: #FFFFFF;
   width: 350px; }
-
-.middleWrapper {
-  position: relative;
-  margin: 0 auto;
-  background: transparent;
-  width: 100%;
-  z-index: -1; }
 
 .viewFocus {
   position: relative;
@@ -469,6 +460,7 @@ body {
   height: 20px;
   font-size: 1.5em;
   color: #cc9a9a;
+  -webkit-transition: color 0.2s ease-out;
   transition: color 0.2s ease-out;
   margin-left: 5px; }
 
@@ -670,6 +662,7 @@ body {
 
 .linksItem-enter.linksItem-enter-active {
   opacity: 1;
+  -webkit-transition: opacity 300ms ease-in;
   transition: opacity 300ms ease-in; }
 
 .linksItem-leave {
@@ -677,14 +670,18 @@ body {
 
 .linksItem-leave.linksItem-leave-active {
   opacity: 0.01;
+  -webkit-transition: opacity 300ms ease-in;
   transition: opacity 300ms ease-in; }
 
 .clockStyle {
-  position: relative;
-  margin-top: 15%;
+  position: fixed;
+  top: 30%;
+  width: 100%;
+  left: 50%;
+  margin-left: -50%;
   background-color: transparent;
   color: white;
-  font-size: 85px;
+  font-size: 60px;
   text-align: center;
   z-index: -1; }
 
@@ -748,7 +745,7 @@ body {
   max-width: 700px;
   border-radius: 5px;
   background-color: rgba(0, 0, 0, 0.8);
-  margin-bottom: 2%;
+  margin-bottom: 1%;
   z-index: 10; }
 
 .settingsLeft {
@@ -765,6 +762,50 @@ body {
   float: right;
   width: 69%;
   height: 99%; }
+
+.background {
+  color: #aaa; }
+  .background h2 {
+    color: #eee; }
+  .background ul {
+    margin: 0;
+    padding: 0;
+    list-style: none; }
+  .background li {
+    display: inline-block;
+    margin-right: 5%; }
+    .background li:hover {
+      color: #eee;
+      cursor: pointer; }
+  .background .active {
+    border-bottom: 3px solid #eee;
+    color: #eee; }
+  .background .line-separator {
+    display: absolute;
+    height: 1px;
+    background: #717171;
+    border-bottom: 1px solid #313030;
+    width: 98%; }
+  .background .backgroundImageItem {
+    position: relative;
+    width: 54px;
+    height: 54px;
+    border: 1px solid gray;
+    display: inline-block;
+    margin: 5px; }
+    .background .backgroundImageItem:hover {
+      cursor: pointer;
+      border: 1px solid green; }
+    .background .backgroundImageItem .heartInBackgroundHistory {
+      position: absolute;
+      top: 0px;
+      left: 38px; }
+      .background .backgroundImageItem .heartInBackgroundHistory:hover {
+        cursor: pointer;
+        color: white; }
+  .background .backgroundHistoryViewContainer {
+    max-height: 205px;
+    overflow: auto; }
 
 .about {
   position: absolute;
@@ -799,6 +840,7 @@ body {
 
 .example-appear.example-appear-active {
   opacity: 1;
+  -webkit-transition: opacity .5s ease-in;
   transition: opacity .5s ease-in; }
 
 .register {

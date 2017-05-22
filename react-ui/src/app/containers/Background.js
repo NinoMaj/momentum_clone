@@ -1,8 +1,8 @@
 /* eslint linebreak-style: 0 */
 import React, {Component} from 'react';
 import BackgroundButton from '../components/BackgroundButton';
-import BackgroundFavoritesView from './BackgroundFavoritesView';
-import BackgroundHistoryView from './BackgroundHistoryView';
+import BackgroundView from './BackgroundView';
+// import BackgroundHistoryView from './BackgroundHistoryView';
 
 class Background extends Component {
   constructor() {
@@ -37,8 +37,8 @@ class Background extends Component {
         </ul>
         <div className="line-separator"></div>
         {this.state.active === 'Favorites' ?
-          <BackgroundFavoritesView/> :
-          <BackgroundHistoryView/>
+          <BackgroundView active="Favorites"/> :
+          <BackgroundView active="History"/>
         }
       </div>
     );

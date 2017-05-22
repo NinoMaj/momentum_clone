@@ -1,12 +1,13 @@
 {
-  "name": "heroku-cra-node",
+  "name": "momentum_clone",
   "version": "1.0.0",
-  "description": "How to use create-react-app with a custom Node API on Heroku",
+  "description": "Momentum clone",
   "engines": {
     "node": "6.9.x"
   },
   "scripts": {
     "start": "node server",
+    "build": "cd react-ui/ && npm run build",
     "heroku-postbuild": "cd react-ui/ && npm install --only=dev && npm install && npm run build"
   },
   "cacheDirectories": [
@@ -21,18 +22,14 @@
     "express-jwt": "^5.3.0",
     "jsonwebtoken": "^7.4.0",
     "mongoose": "^4.9.6",
+    "redux-thunk": "^2.2.0",
     "request": "^2.81.0"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/mars/heroku-cra-node.git"
+    "url": ""
   },
-  "keywords": [
-    "node",
-    "heroku",
-    "create-react-app",
-    "react"
-  ],
+  "keywords": [],
   "license": "MIT",
   "devDependencies": {}
 }

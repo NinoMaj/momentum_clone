@@ -9,9 +9,10 @@ import form from './form';
 import widgets from './widgets';
 import token from './token';
 import quotesSettings from './quotesSettings';
+import background from './background_reducer';
 
 const rootReducer = combineReducers({
-  todos, quotes, hover, links, form, mainFocus, widgets, token, quotesSettings
+  todos, quotes, hover, links, form, mainFocus, widgets, token, quotesSettings, background
 });
 
 export default rootReducer;

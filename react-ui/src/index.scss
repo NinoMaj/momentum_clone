@@ -1,14 +1,10 @@
-html {
-  background: url("https://source.unsplash.com/category/nature/daily") no-repeat center center fixed;
+body {
+  background: url("https://source.unsplash.com/category/nature") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
   height: 100%;
-}
-
-body {
-  background-color: transparent;
 }
 
 .newTodoTextInput {
@@ -392,7 +388,7 @@ body {
   max-width: 700px;
   border-radius: 5px;
   background-color: rgba(0, 0, 0, 0.8);;
-  margin-bottom: 2%;
+  margin-bottom: 1%;
   z-index: 10;
 }
 
@@ -445,6 +441,36 @@ body {
     background:#717171;
     border-bottom:1px solid #313030;
     width: 98%;
+  }
+
+  .backgroundImageItem {
+    position: relative;
+    width: 54px;
+    height: 54px;
+    border: 1px solid gray;
+    display: inline-block;
+    margin: 5px;
+
+    &:hover {
+      cursor: pointer;
+      border: 1px solid green;
+    }
+
+      .heartInBackgroundHistory {
+        position: absolute;
+        top: 0px;
+        left: 38px;
+        
+        &:hover {
+          cursor: pointer;
+          color: white;
+        }
+      }
+  }
+
+  .backgroundHistoryViewContainer {
+    max-height: 205px;
+    overflow: auto;
   }
 }
 

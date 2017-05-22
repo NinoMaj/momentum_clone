@@ -37,13 +37,6 @@ class App extends Component {
   }
 
   storeBackgroundInHistory() {
-    // axios.post('/background/addBackgroundHistory')
-    //   .then(response => {
-    //     console.log(response.data);
-    //   })
-    //   .catch(error => {
-    //     console.log(error);
-    //   });
     this.props.actions.addBackgroundAsync();
   }
 

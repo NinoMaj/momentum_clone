@@ -48,10 +48,10 @@ class Settings extends Component {
       <div className="settings">
         {this.state.show ? <div className={this.state.show ? "settingsPage enter" : 'settingsPage'}>
           <div className="settingsLeft">
-            <h3 onClick={this.handleChoose} id="general">General</h3>
-            <h3 onClick={this.handleChoose} id="todo">Todo</h3>
-            <h3 onClick={this.handleChoose} id="background">Background</h3>
-            <h3 onClick={this.handleChoose} id="quotes">Quotes</h3>
+            <h3 onClick={this.handleChoose} className="settingsLeftText" id="general">General</h3>
+            <h3 onClick={this.handleChoose} className="settingsLeftText" id="todo">Todo</h3>
+            <h3 onClick={this.handleChoose} className="settingsLeftText" id="background">Background</h3>
+            <h3 onClick={this.handleChoose} className="settingsLeftText" id="quotes">Quotes</h3>
             <br/>
             <h4 onClick={this.handleChoose} id="help">Help</h4>
             <h4 onClick={this.handleChoose} id="about">About</h4>

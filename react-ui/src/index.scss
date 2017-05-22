@@ -1,5 +1,5 @@
 body {
-  background: url("https://source.unsplash.com/category/nature") no-repeat center center fixed;
+  background: url("https://source.unsplash.com/category/nature/daily") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -400,6 +400,12 @@ body {
   padding-left: 5%;
   padding-top: 3%;
   overflow-wrap: break-word;
+
+  .settingsLeftText {
+    &:hover {
+      cursor: pointer;
+    }
+  }
 }
 
 .settingsRight {

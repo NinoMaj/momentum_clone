@@ -50,7 +50,7 @@ export const addBackgroundAsync = () => dispatch => {
       dispatch(addBackgroundAsyncSuccess(background));
     })
     .catch(error => {
-      console.log('catch in backgroundAsync in addBackgroundAsync');
+      console.error('catch in backgroundAsync in addBackgroundAsync', error);
       dispatch(backgroundAsyncFailure(error));
     });
 };
@@ -77,7 +77,7 @@ export const saveBackgroundAsync = backgroundToSave => dispatch => {
       dispatch(saveBackgroundAsyncSuccess(background));
     })
     .catch(error => {
-      console.log('catch in saveBackgroundAsync');
+      console.error('catch in saveBackgroundAsync', error);
       dispatch(backgroundAsyncFailure(error));
     });
 };

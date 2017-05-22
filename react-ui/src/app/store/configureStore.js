@@ -1,19 +1,19 @@
 /* eslint linebreak-style: 0 */
-import {createStore, applyMiddleware} from 'redux';
+import {createStore, applyMiddleware, compose} from 'redux';
 import rootReducer from '../reducers/index';
 import thunkMiddleware from 'redux-thunk';
 
+const MODE = 'development';
+
 /* eslint-disable no-underscore-dangle */
-// const composeEnhancers = (process.env.NODE_ENV === 'production' ?
-//   null : window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
-console.log(process.env.ENV);
-const bla = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
+const composeEnhancers = (MODE === 'development' ?
+  null : window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
 
 export default function configureStore(initialState) {
   const store = createStore(
     rootReducer,
     initialState,
-    bla(applyMiddleware(thunkMiddleware))
+    composeEnhancers(applyMiddleware(thunkMiddleware))
   );
 
   if (module.hot) {

@@ -2,7 +2,6 @@
 import React, {Component} from 'react';
 import BackgroundButton from '../components/BackgroundButton';
 import BackgroundView from './BackgroundView';
-// import BackgroundHistoryView from './BackgroundHistoryView';
 
 class Background extends Component {
   constructor() {

@@ -33,9 +33,9 @@ class BackgroundView extends Component {
     return (
       <div className="backgroundHistoryViewContainer">
         {backgroundsToRender.length > 0 ?
-          backgroundsToRender.map(image =>
+          backgroundsToRender.map((image, index) =>
             <BackgroundImageItem
-              key={image.link}
+              key={index}
               image={image}
               onHeartClicked={clickedBackground => this.handleHeartClick(clickedBackground)} // eslint-disable-line react/jsx-no-bind
               onBackgroundClicked={backgroundClicked => this.backgroundClicked(backgroundClicked)} // eslint-disable-line react/jsx-no-bind

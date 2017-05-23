@@ -24,7 +24,7 @@ const BackgroundImageItem = props => {
 };
 
 BackgroundImageItem.propTypes = {
-  image: PropTypes.string,
+  image: PropTypes.object,
   onHeartClicked: PropTypes.func.isRequired,
   onBackgroundClicked: PropTypes.func.isRequired
 };

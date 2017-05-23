@@ -41,7 +41,7 @@ class BackgroundView extends Component {
               onBackgroundClicked={backgroundClicked => this.backgroundClicked(backgroundClicked)} // eslint-disable-line react/jsx-no-bind
               />
           ) :
-          'No image to show'
+          'No images to show.'
         }
       </div>
     );

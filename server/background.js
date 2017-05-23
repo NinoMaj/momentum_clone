@@ -24,17 +24,18 @@ router.post('/addBackgroundHistory', authCheck, (req, res) => {
     if (error) {
       return res.status(400).send(error);
     }
-    axios.get('https://source.unsplash.com/category/nature/daily')
+    axios.get('https://source.unsplash.com/category/nature')
       .then(response => {
+        const urlToSave = response.request.res.responseUrl;
         for (let i = 0; i < user.backgroundHistory.length; i++) {
-          if (user.backgroundHistory[i].link === response.request._currentUrl) {
-            return res.status(200).send(user.backgroundHistory);
+          if (user.backgroundHistory[i].link === urlToSave) {
+            return res.status(200).send( user.backgroundHistory);
           }
         }
 
         const background = {
           date: new Date(),
-          link: response.request._currentUrl,
+          link: urlToSave,
           favorite: false
         }
 
@@ -48,7 +49,7 @@ router.post('/addBackgroundHistory', authCheck, (req, res) => {
         
         user.save((err, user) => {
           if (err) return res.status(500).send('Error while saving:', err);
-          res.send(user.backgroundHistory);
+          res.status(200).send(user.backgroundHistory);
         });
 
       });
@@ -62,7 +63,6 @@ router.post('/saveToFavorites/:link', authCheck, (req, res) => {
     if (error) {
       return res.status(400).send(error);
     }
-
     // find background that needs to be add as favorite
     for (let i = 0; i < user.backgroundHistory.length; i++) {
       if (user.backgroundHistory[i].link === linkToSave) {

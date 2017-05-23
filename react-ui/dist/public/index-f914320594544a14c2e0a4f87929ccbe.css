@@ -392,7 +392,7 @@ html .clear-completed:active {
   .filters {
     bottom: 10px; } }
 body {
-  background: url("https://source.unsplash.com/category/nature/daily") no-repeat center center fixed;
+  background: url("https://source.unsplash.com/category/nature") no-repeat center center fixed;
   background-size: cover;
   height: 100%; }
 

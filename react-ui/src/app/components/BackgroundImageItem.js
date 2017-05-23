@@ -13,7 +13,7 @@ const BackgroundImageItem = props => {
     <i onClick={handleHeartClicked} className="fa fa-heart" aria-hidden="true"></i> :
     <i onClick={handleHeartClicked} className="fa fa-heart-o" aria-hidden="true"></i>;
 
-  if (props.image.link) {
+  if (!props.image.link) {
     return null;
   }
 

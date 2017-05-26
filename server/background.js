@@ -24,7 +24,7 @@ router.post('/addBackgroundHistory', authCheck, (req, res) => {
     if (error) {
       return res.status(400).send(error);
     }
-    axios.get('https://source.unsplash.com/category/nature')
+    axios.get('https://source.unsplash.com/category/nature/daily')
       .then(response => {
         const urlToSave = response.request.res.responseUrl;
         for (let i = 0; i < user.backgroundHistory.length; i++) {
@@ -46,7 +46,7 @@ router.post('/addBackgroundHistory', authCheck, (req, res) => {
         if (user.backgroundHistory.length > 365) {
           user.backgroundHistory.shift();
         }
-        
+
         user.save((err, user) => {
           if (err) return res.status(500).send('Error while saving:', err);
           res.status(200).send(user.backgroundHistory);
@@ -74,7 +74,7 @@ router.post('/saveToFavorites/:link', authCheck, (req, res) => {
         indexOfChangedBackground = i;
       }
     }
-    
+
     user.save((err, user) => {
       if (err) {
         console.error('err', err);
@@ -92,7 +92,7 @@ router.get('/getBackgroundsInHistory', authCheck, (req, res) => {
     }
 
     return res.status(200).send(user.backgroundHistory);
-    
+
   });
 });
 

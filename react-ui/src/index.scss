@@ -1,5 +1,5 @@
 body {
-  background: url("https://source.unsplash.com/category/nature") no-repeat center center fixed;
+  background: url("https://source.unsplash.com/category/nature/daily") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -306,7 +306,7 @@ body {
 
 .clockStyle {
   position: fixed;
-  top: 30%;
+  top: 38%;
   width: 100%;
   left: 50%;
   margin-left: -50%;
@@ -441,7 +441,7 @@ body {
       color: #eee;
     }
 
-  .line-separator {  
+  .line-separator {
     display: absolute;
     height:1px;
     background:#717171;
@@ -466,7 +466,7 @@ body {
         position: absolute;
         top: 0px;
         left: 38px;
-        
+
         &:hover {
           cursor: pointer;
           color: white;
